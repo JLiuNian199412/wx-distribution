@@ -9,11 +9,14 @@
     {{#each cssList}}
     <link rel='stylesheet' type="text/css" class="cssList" href='/stylesheet/{{this}}' />
     {{/each}}
+    {{#each jsList}}
+    <script type="text/javascript" src='/javascript/{{this}}' class="jsList"></script>
+    {{/each}}
 </head>
 <body>
 <header class="aui-bar aui-bar-nav">
-    <a class="aui-pull-left aui-btn">
-        <span class="aui-iconfont aui-icon-left"></span>返回
+    <a class="aui-pull-left aui-btn aui-btn-outlined">
+        <span class="aui-iconfont aui-icon-menu"></span>
     </a>
     <div class="aui-title">Title</div>
 </header>
@@ -47,94 +50,56 @@
         <div class="aui-bar-tab-label">我的</div>
     </div>
 </footer>
-</body>
 <script type="text/javascript" src="/javascript/lib/jquery-2.1.4.min.js"></script>
 <!--<script type="text/javascript" src="javascript/lib/api.js" ></script>-->
 <script type="text/javascript" src="/javascript/lib/aui-tab.js" ></script>
-{{#each jsList}}
-<script type="text/javascript" src='/javascript/{{this}}' class="jsList"></script>
-{{/each}}
 <script type="text/javascript">
     apiready = function(){
         api.parseTapmode();
-    }
+    };
     var tab = new auiTab({
         index: 1, //默认选中
         element:document.getElementById("footer"),
         repeatClick: false //是否允许重复点击
     },function(ret){
-//        console.log(ret);
         if(ret){
-            var localHost='http://'+window.location.host;
+            var str='';
+            function tapSwitch(item){
+                var url='http://'+window.location.host+item;
+                $.get(url,function(result){
+                    $.each(result.cssList,function(_,v){
+                        str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+                    });
+                    str+=result.template;
+                    $.each(result.jsList,function(_,v){
+                        str+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+                    });
+                    $('head').append(str);
+                });
+            }
             $('.cssList').remove();
             $('.jsList').remove();
-            var str='';
-            var str1='';
+            $('.templateList').remove();
             switch (ret.index){
                 case 1:
-                    $.get(localHost+'/index',function(result){
-                        $.each(result.cssList,function(_,v){
-                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
-                        });
-                        $.each(result.jsList,function(_,v){
-                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
-                        });
-                        $('head').append(str);
-                        $('body').append(str1);
-                    });
+                    tapSwitch('/home');
                     break;
                 case 2:
-                    $.get(localHost+'/shop',function(result){
-                        $.each(result.cssList,function(_,v){
-                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
-                        });
-                        $.each(result.jsList,function(_,v){
-                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
-                        });
-                        $('head').append(str);
-                        $('body').append(str1);
-                    });
+                    tapSwitch('/shop');
                     break;
                 case 3:
-                    $.get(localHost+'/store',function(result){
-                        $.each(result.cssList,function(_,v){
-                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
-                        });
-                        $.each(result.jsList,function(_,v){
-                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
-                        });
-                        $('head').append(str);
-                        $('body').append(str1);
-                    });
+                    tapSwitch('/store');
                     break;
                 case 4:
-                    $.get(localHost+'/shop-cart',function(result){
-                        $.each(result.cssList,function(_,v){
-                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
-                        });
-                        $.each(result.jsList,function(_,v){
-                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
-                        });
-                        $('head').append(str)
-                        $('body').append(str1)
-                    });
+                    tapSwitch('/shop-cart');
                     break;
                 case 5:
-                    $.get(localHost+'/mine',function(result){
-                        $.each(result.cssList,function(_,v){
-                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
-                        });
-                        $.each(result.jsList,function(_,v){
-                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
-                        });
-                        $('head').append(str);
-                        $('body').append(str1);
-                    });
+                    tapSwitch('/mine');
                     break;
 
             }
-//            document.getElementById("demo").textContent = ret.index;
         }
     });
 </script>
+</body>
 </html>
