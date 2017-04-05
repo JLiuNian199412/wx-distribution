@@ -4,20 +4,46 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var option={};
+  option.cssList= ['home.css'];
+  option.jsList= ['home.js'];
   userDao.login(function(val){
-    res.render('home',{val:val,cssList: ['/css/home.css', '/css/home_add.css'],jsList: ['/js/home.js']});
+    option.val=val;
+    res.render('home',option);
   })
 });
-router.get('/index2', function(req, res, next) {
-  res.render('shop', { title: 'Express' });
+router.get('/index', function(req, res, next) {
+  var option={};
+  option.cssList= ['home.css'];
+  option.jsList= ['home.js'];
+  userDao.login(function(val){
+    option.val=val;
+    res.json(option);
+  })
 });
-router.get('/index3', function(req, res, next) {
-  res.render('store', { title: 'Express' });
+
+router.get('/shop', function(req, res, next) {
+  var option={};
+  option.cssList= ['shop.css'];
+  option.jsList= ['shop.js'];
+  res.json(option);
 });
-router.get('/index4', function(req, res, next) {
-  res.render('shop-cart', { title: 'Express' });
+router.get('/store', function(req, res, next) {
+  var option={};
+  option.cssList= ['store.css'];
+  option.jsList= ['store.js'];
+  res.json(option);
+});
+router.get('/shop-cart', function(req, res, next) {
+  var option={};
+  option.cssList= ['shop-cart.css'];
+  option.jsList= ['shop-cart.js'];
+  res.json(option);
 })
-;router.get('/index5', function(req, res, next) {
-  res.render('mine', { title: 'Express' });
+;router.get('/mine', function(req, res, next) {
+  var option={};
+  option.cssList= ['mine.css'];
+  option.jsList= ['mine.js'];
+  res.json(option);
 });
 module.exports = router;

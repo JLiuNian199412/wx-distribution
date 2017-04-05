@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <link rel="stylesheet" type="text/css" href="stylesheets/lib/aui.css" />
-    {{css "/css/home_add.css"}}
-    {{js "/js/home.js"}}
+    <link rel="stylesheet" type="text/css" href="/stylesheet/lib/aui.css" />
     {{#each cssList}}
-    <link rel='stylesheet' type="text/css" href={{this}} />
+    <link rel='stylesheet' type="text/css" class="cssList" href='/stylesheet/{{this}}' />
     {{/each}}
 </head>
 <body>
@@ -50,11 +48,11 @@
     </div>
 </footer>
 </body>
-<script type="text/javascript" src="javascripts/lib/jquery-2.1.4.min.js"></script>
-<!--<script type="text/javascript" src="javascripts/lib/api.js" ></script>-->
-<script type="text/javascript" src="javascripts/lib/aui-tab.js" ></script>
+<script type="text/javascript" src="/javascript/lib/jquery-2.1.4.min.js"></script>
+<!--<script type="text/javascript" src="javascript/lib/api.js" ></script>-->
+<script type="text/javascript" src="/javascript/lib/aui-tab.js" ></script>
 {{#each jsList}}
-<script type="text/javascript" src={{this}}></script>
+<script type="text/javascript" src='/javascript/{{this}}' class="jsList"></script>
 {{/each}}
 <script type="text/javascript">
     apiready = function(){
@@ -67,21 +65,71 @@
     },function(ret){
 //        console.log(ret);
         if(ret){
+            var localHost='http://'+window.location.host;
+            $('.cssList').remove();
+            $('.jsList').remove();
+            var str='';
+            var str1='';
             switch (ret.index){
                 case 1:
-//                    location.href='http://127.0.0.1:3000/index';
+                    $.get(localHost+'/index',function(result){
+                        $.each(result.cssList,function(_,v){
+                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+                        });
+                        $.each(result.jsList,function(_,v){
+                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+                        });
+                        $('head').append(str);
+                        $('body').append(str1);
+                    });
                     break;
                 case 2:
-//                    location.href='http://127.0.0.1:3000/index2';
+                    $.get(localHost+'/shop',function(result){
+                        $.each(result.cssList,function(_,v){
+                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+                        });
+                        $.each(result.jsList,function(_,v){
+                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+                        });
+                        $('head').append(str);
+                        $('body').append(str1);
+                    });
                     break;
                 case 3:
-//                    location.href='http://127.0.0.1:3000/index3';
+                    $.get(localHost+'/store',function(result){
+                        $.each(result.cssList,function(_,v){
+                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+                        });
+                        $.each(result.jsList,function(_,v){
+                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+                        });
+                        $('head').append(str);
+                        $('body').append(str1);
+                    });
                     break;
                 case 4:
-//                    location.href='http://127.0.0.1:3000/index4';
+                    $.get(localHost+'/shop-cart',function(result){
+                        $.each(result.cssList,function(_,v){
+                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+                        });
+                        $.each(result.jsList,function(_,v){
+                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+                        });
+                        $('head').append(str)
+                        $('body').append(str1)
+                    });
                     break;
                 case 5:
-//                    location.href='http://127.0.0.1:3000/index5';
+                    $.get(localHost+'/mine',function(result){
+                        $.each(result.cssList,function(_,v){
+                            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+                        });
+                        $.each(result.jsList,function(_,v){
+                            str1+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+                        });
+                        $('head').append(str);
+                        $('body').append(str1);
+                    });
                     break;
 
             }

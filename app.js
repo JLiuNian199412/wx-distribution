@@ -45,15 +45,15 @@ hbs.registerHelper('css', function(str, option) {
 });
 
 hbs.registerHelper('js', function(str, option) {
-  var cssList = this.cssList || [];
+  var jsList = this.jsList || [];
   str = str.split(/[,，;；]/);
   console.log('js: ',str);
   str.forEach(function (item) {
-    if(cssList.indexOf(item)<0) {
-      cssList.push(item);
+    if(jsList.indexOf(item)<0) {
+      jsList.push(item);
     }
   });
-  this.cssList = cssList.concat();
+  this.jsList = jsList.concat();
 })
 
 
