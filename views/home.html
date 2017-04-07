@@ -6,6 +6,7 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <link rel="stylesheet" type="text/css" href="/stylesheet/lib/aui.css" />
+    <script type="text/javascript" src="/javascript/lib/jquery-2.1.4.min.js"></script>
     {{#each cssList}}
     <link rel='stylesheet' type="text/css" class="cssList" href='/stylesheet/{{this}}' />
     {{/each}}
@@ -14,13 +15,25 @@
     {{/each}}
 </head>
 <body>
-<header class="aui-bar aui-bar-nav">
-    <a class="aui-pull-left aui-btn aui-btn-outlined">
+<header class="aui-bar aui-bar-nav aui-bar-light">
+    <a class="aui-pull-left aui-btn">
         <span class="aui-iconfont aui-icon-menu"></span>
     </a>
-    <div class="aui-title">Title</div>
+    <div class="aui-title">
+        <div class="aui-searchbar" id="search">
+            <div class="aui-searchbar-input aui-border-radius" tapmode>
+                <i class="aui-iconfont aui-icon-search"></i>
+                <form action="javascript:search();">
+                    <input type="search" placeholder="请输入搜索内容" id="search-input">
+                </form>
+            </div>
+        </div>
+    </div>
+    <a class="aui-pull-right aui-btn ">
+        <span class="aui-iconfont aui-icon-comment"></span>
+    </a>
 </header>
-<div id="demo">
+<div id="content">
     {{#each val}}
         {{id}}
         {{name}}
@@ -50,7 +63,6 @@
         <div class="aui-bar-tab-label">我的</div>
     </div>
 </footer>
-<script type="text/javascript" src="/javascript/lib/jquery-2.1.4.min.js"></script>
 <!--<script type="text/javascript" src="javascript/lib/api.js" ></script>-->
 <script type="text/javascript" src="/javascript/lib/aui-tab.js" ></script>
 <script type="text/javascript">
@@ -75,6 +87,7 @@
                         str+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
                     });
                     $('head').append(str);
+                    $('.aui-title').html(result.title);
                 });
             }
             $('.cssList').remove();

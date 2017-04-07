@@ -1514,7 +1514,7 @@ input[type="search"]::-webkit-search-cancel-button {
 	background: none;
 }
 .aui-bar-nav .aui-btn .aui-iconfont {
-	font-size: 0.9rem;
+	font-size:1.2rem;
 	line-height: 1.25rem;
 	padding: 0;
 	margin: 0;
