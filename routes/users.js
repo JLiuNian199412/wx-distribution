@@ -4,8 +4,8 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
   var option={};
-  option.cssList= ['shop.css'];
-  option.jsList= ['loginAndRegister.js'];
+  //option.cssList= ['login.css'];
+  option.jsList= ['login.js'];
   res.json(option);
 });
 
@@ -19,7 +19,7 @@ router.post('/login', function(req, res, next) {
 router.get('/register', function(req, res, next) {
   var option={};
   option.cssList= ['shop.css'];
-  option.jsList= ['loginAndRegister.js'];
+  option.jsList= ['login.js'];
   res.json(option);
 });
 
