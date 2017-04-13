@@ -1,6 +1,6 @@
 $(function(){
     $('.aui-pull-right.aui-btn').click(function(){
-        $.get('http://'+window.location.host+'/users/login',function(result){
+        $.get('/users/login',function(result){
             var str='';
             if(result.cssList){
                 $.each(result.cssList,function(_,v){

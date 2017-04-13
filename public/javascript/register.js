@@ -13,7 +13,7 @@ $(function(){
         })
     }
     var register=function(){
-        var url='http://'+window.location.host+'/register';
+        var url='/register';
         showTemplate(url,registerTemplate)
     };
 });

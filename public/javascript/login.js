@@ -13,7 +13,7 @@ $(function(){
         })
     }
     var login=function(){
-        var url='http://'+window.location.host+'/users/login';
+        var url='/users/login';
         showTemplate(url,loginTemplate)
     };
     login()
