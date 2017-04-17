@@ -13,22 +13,22 @@ router.get('/', function(req, res, next) {
   })
 });
 router.get('/home', function(req, res, next) {
-  var option={};
-  option.cssList= ['home.css'];
-  option.jsList= ['home.js'];
-  option.template=
-      '<script id="home-template" type="text/x-handlebars-template" class="templateList">'+
+    var option={};
+    option.cssList= ['home.css'];
+    option.jsList= ['home.js'];
+    option.template=
+        '<script id="home-template" type="text/x-handlebars-template" class="templateList">'+
         '<div class="entry">'+
-           '<h1>{{title}}</h1>'+
-           '<div class="body">'+
-              '{{body}}'+
-           '</div>'+
+        '<h1>{{title}}</h1>'+
+        '<div class="body">'+
+        '{{body}}'+
         '</div>'+
-      '</script>';
-  userDao.login(function(val){
-    option.val=val;
-    res.json(option);
-  })
+        '</div>'+
+        '</script>';
+    userDao.login(function(val){
+        option.val=val;
+        res.json(option);
+    })
 });
 
 router.get('/shop', function(req, res, next) {

@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="/stylesheet/lib/aui.css" />
     <script type="text/javascript" src="/javascript/lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="/javascript/lib/handlebars-v4.0.2.js"></script>
+    <script type="text/javascript" src="/javascript/lib/aui-tab.js" ></script>
+    <script type="text/javascript" src="/javascript/lib/aui-slide.js" ></script>
+    <script type="text/javascript" src="/javascript/main.js"></script>
     {{#each cssList}}
     <link rel='stylesheet' type="text/css" class="cssList" href='/stylesheet/{{this}}' />
     {{/each}}
@@ -65,7 +68,6 @@
     </div>
 </footer>
 <!--<script type="text/javascript" src="javascript/lib/api.js" ></script>-->
-<script type="text/javascript" src="/javascript/lib/aui-tab.js" ></script>
 <script type="text/javascript">
     apiready = function(){
         api.parseTapmode();
@@ -77,6 +79,7 @@
     },function(ret){
         if(ret){
             var str='';
+            let headAll=$('header');
             function tapSwitch(url){
                 $.get(url,function(result){
                     $.each(result.cssList,function(_,v){
@@ -86,18 +89,25 @@
                         str+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
                     });
                     $('head').append(str);
-                    $('.aui-title').html(result.title);
                 });
             }
             $('.cssList').remove();
             $('.jsList').remove();
             $('.templateList').remove();
+            headAll.html(ui.header);
+            let headLeft=$('.aui-pull-left');
+            let headRight=$('.aui-pull-right');
+            let headTitle=$('.aui-title');
             switch (ret.index){
                 case 1:
                     tapSwitch('/home');
+                    headLeft.html(ui.menu);
+                    headRight.html(ui.comment);
+                    headTitle.html(ui.search);
                     break;
                 case 2:
                     tapSwitch('/shop');
+                    headAll.html(ui.search);
                     break;
                 case 3:
                     tapSwitch('/store');

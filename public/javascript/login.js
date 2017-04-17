@@ -6,15 +6,10 @@ $(function(){
         '{{body}}' +
         '</div>' +
         '</div>';
-    function showTemplate(url,templates){
-        $.post(url,function(result){
-            let template = Handlebars.compile(templates);
-            $('#content').html(template(result))
-        })
-    }
+
     var login=function(){
         var url='/users/login';
-        showTemplate(url,loginTemplate)
+        showTemplate(url,loginTemplate,'','登录','')
     };
     login()
 });
