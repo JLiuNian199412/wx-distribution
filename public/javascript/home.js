@@ -18,7 +18,7 @@ $(function(){
     var slide = new auiSlide({
         container:document.getElementById("aui-slide"), //容器
         // "width":300, //宽度
-        "height":240, //高度
+        "height":184, //高度
         "speed":500, //速度
         "autoPlay": 3000, //自动播放
         "loop":true,//是否循环
