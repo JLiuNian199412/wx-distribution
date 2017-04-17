@@ -38,10 +38,20 @@
     </a>
 </header>
 <div id="content">
-    {{#each val}}
-        {{id}}
-        {{name}}
-    {{/each}}
+    <div id="aui-slide">
+        <div class="aui-slide-wrap" >
+            <div class="aui-slide-node bg-dark">
+                <img src="/images/slide1.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="/images/slide2.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="/images/slide3.png" />
+            </div>
+        </div>
+        <div class="aui-slide-page-wrap"><!--分页容器--></div>
+    </div>
 </div>
 <footer class="aui-bar aui-bar-tab" id="footer">
     <div class="aui-bar-tab-item aui-active" tapmode>
@@ -80,7 +90,14 @@
         if(ret){
             var str='';
             let headAll=$('header');
-            function tapSwitch(url){
+            $('.cssList').remove();
+            $('.jsList').remove();
+            $('.templateList').remove();
+            headAll.html(ui.header);
+            let headLeft=$('.aui-pull-left');
+            let headRight=$('.aui-pull-right');
+            let headTitle=$('.aui-title');
+            function tapSwitch(url,left,title,right){
                 $.get(url,function(result){
                     $.each(result.cssList,function(_,v){
                         str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
@@ -89,21 +106,20 @@
                         str+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
                     });
                     $('head').append(str);
+                    if(left){
+                        headLeft.html(left)
+                    }
+                    if(title){
+                        headTitle.html(title);
+                    }
+                    if(right){
+                        headRight.html(right);
+                    }
                 });
             }
-            $('.cssList').remove();
-            $('.jsList').remove();
-            $('.templateList').remove();
-            headAll.html(ui.header);
-            let headLeft=$('.aui-pull-left');
-            let headRight=$('.aui-pull-right');
-            let headTitle=$('.aui-title');
             switch (ret.index){
                 case 1:
-                    tapSwitch('/home');
-                    headLeft.html(ui.menu);
-                    headRight.html(ui.comment);
-                    headTitle.html(ui.search);
+                    tapSwitch('/home',ui.menu,ui.search,ui.comment);
                     break;
                 case 2:
                     tapSwitch('/shop');
@@ -113,7 +129,7 @@
                     tapSwitch('/store');
                     break;
                 case 4:
-                    tapSwitch('/shop-cart');
+                    tapSwitch('/shop-cart',ui.left,'购物车');
                     break;
                 case 5:
                     tapSwitch('/mine');
