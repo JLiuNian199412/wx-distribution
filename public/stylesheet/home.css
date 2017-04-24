@@ -15,3 +15,22 @@
 .aui-searchbar-input input{
     height: 1.6rem;
 }
+.index_nav{
+    margin: 0 auto;
+    width: 52px;
+    height: 52px;
+}
+.aui-col-xs-6.index-theme-icon{
+    height: 84px;
+    padding: 0;
+    width: 49.5%;
+}
+.aui-col-xs-6.index-theme-icon:first-child{
+margin-right:1% ;
+}
+.aui-col-xs-6.index-theme-icon:last-child{
+margin-left:1% ;
+}
+.aui-grid [class*=aui-col-xs-]:active{
+    background-color:#ffffff;
+}
