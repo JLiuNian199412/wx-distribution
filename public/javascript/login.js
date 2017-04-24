@@ -8,8 +8,11 @@ $(function(){
         '</div>';
 
     var login=function(){
-        var url='/users/login';
-        showTemplate(url,loginTemplate,'','登录','')
+        let option={};
+        option.templates=loginTemplate;
+        option.result='';
+        option.title='登录';
+        showTemplate(option)
     };
     login()
 });

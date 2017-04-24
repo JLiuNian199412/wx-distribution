@@ -1,11 +1,27 @@
-function showTemplate(url,templates,left,middle,right){
-    $.post(url,function(result){
-        let template = Handlebars.compile(templates);
-        $('#content').html(template(result));
-        $('.aui-title').html(middle);
-        $('.aui-pull-left').html(left);
-        $('.aui-pull-right').html(right)
+function loadLib(url){
+    let str='';
+    $.get(url,function(result){
+        $.each(result.cssList,function(_,v){
+            str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
+        });
+        $.each(result.jsList,function(_,v){
+            str+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
+        });
+        $('head').append(str);
     })
+}
+function showTemplate(option){
+    let template = Handlebars.compile(option.templates);
+    $('#content').html(template(option.result));
+    if(option.title){
+        $('.aui-title').html(option.title);
+    }
+    if(option.left){
+        $('.aui-pull-left').html(option.left);
+    }
+    if(option.right){
+        $('.aui-pull-right').html(option.right)
+    }
 }
 var ui={};
 ui.header='<a class="aui-pull-left aui-btn"></a><div class="aui-title"></div><a class="aui-pull-right aui-btn "></a>';
