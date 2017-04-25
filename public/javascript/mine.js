@@ -1,3 +1,4 @@
-/**
- * Created by zhu zhu on 2017/4/5.
- */
+$(function(){
+    let template='';
+    localStorage.setItem('template',template)
+})
