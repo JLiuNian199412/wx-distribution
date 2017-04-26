@@ -91,5 +91,5 @@ $(function(){
                 '</div>' +
             '</div>'+
         '</section>';
-    localStorage.setItem('template',template)
+        localStorage.setItem('template',template)
 });

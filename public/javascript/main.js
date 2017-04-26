@@ -19,7 +19,6 @@ function loadLib(url,option){
 function showTemplate(option){
     let template = Handlebars.compile(localStorage.getItem('template'));
     $('#content').html(template(option.result));
-    $('#content').html(ui.template);
     if(option.all){
         $('header').html(option.all)
     }else{
