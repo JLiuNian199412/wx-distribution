@@ -1,0 +1,64 @@
+.menu-left, .menu-right {
+    position: fixed;
+    left: 0;
+    top: 2.2rem;
+    bottom: 0;
+    overflow-y: scroll;
+    margin-bottom: 2.5rem;
+}
+.menu-left {
+    background: #F6F6F9;
+}
+.menu-left ul li.active {
+    background: #fff;
+    position: relative;
+    color: #039be5;
+}
+.menu-left ul li {
+    padding: 0.7rem 0.4rem;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    width: 5rem;
+    text-align: center;
+    border: solid 1px #fff;
+}
+.menu-left ul li.active:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #039be5;
+    top: 0;
+    left: 0;
+}
+.menu-right {
+    background: #fff;
+    padding: 0.7rem;
+    right: 0;
+    left:5rem;
+    border-left: solid 1px #F6F6F9;
+    margin-bottom: 2.5rem;
+}
+
+.menu-right ul {
+    overflow: hidden;
+}
+.menu-right ul li {
+    text-align: center;
+    padding: .6rem .4rem;
+}
+.menu-right ul li img {
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: 40px;
+}
+.menu-right ul li span {
+    display: block;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 16px;
+}

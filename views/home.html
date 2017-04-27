@@ -287,6 +287,13 @@
             }
         }
     });
+    let sidebarLi=$('#sidebar ul li')
+    sidebarLi.click(function(){
+        let $this=$(this)
+        sidebarLi.removeClass('active');
+        $this.addClass('active');
+        $(".menu-right").css('display','none').eq($this.index()).css('display','block').scrollTop(0);
+    })
 </script>
 </body>
 </html>
