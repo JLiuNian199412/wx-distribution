@@ -327,5 +327,11 @@ $(function(){
         '<img src="http://shop.ectouch.cn/v2/images/201509/thumb_img/10385_thumb_G_1441858147922.jpg"><span>骑行运动</span></li>'+
         '</ul>'+
         '</section>';
-    localStorage.setItem('template',template)
+    localStorage.setItem('template',template);
+    $("#content").delegate("#sidebar ul li","click",function(){
+        let $this=$(this);
+        $('#sidebar ul li').removeClass('active');
+        $this.addClass('active');
+        $(".menu-right").css('display','none').eq($this.index()).css('display','block').scrollTop(0);
+    });
 })
