@@ -1,0 +1,141 @@
+.search-div {
+    background: #fff;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+}
+.search-div .search {
+    background: #F6F6F9;
+    padding: 0 0.5rem;
+    position: relative;
+}
+.search .text-all {
+    border-bottom: 0;
+    padding: 0.5rem 0;
+    width: 100%;
+    overflow: hidden;
+}
+.search .text-all a{
+    color: #333;
+    width: 8%;
+    height: 1.65rem;
+    line-height: 1.65rem;
+    text-decoration: none;
+    background-color: #F6F6F9;
+    cursor: auto;
+    padding: 0;
+    display: block;
+}
+.search .text-all a span{
+    font-size: 18px;
+}
+.search .input-text {
+    width: 72%;
+    font-size: 16px;
+    display: inline-block;
+    padding: 0.15rem 0;
+    box-sizing: border-box;
+    border-bottom: 0;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+}
+
+.search .input-text input {
+    border: 0;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0.25rem 0.5rem ;
+    box-sizing: border-box;
+    width: 100%;
+    color: #555;
+    font-size: 16px;
+}
+.isNull{
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    background-color: #dcdcdc;
+    position: absolute;
+    top: 20%;
+    z-index: 10;
+    right: 0.5rem;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    transition: all 0.1s;
+}
+.isNull.active {
+    visibility: visible;
+    opacity: 1;
+}
+.is-null {
+    font-size: 16px;
+    color: white;
+}
+.search .btn-submit {
+    display: inline-block;
+    width: 18%;
+    max-width: 3rem;
+    height: 1.65rem;
+    line-height: 1.65rem;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 16px;
+    background: #1cbb7f;
+    border: 1px solid #1cbb7f;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.search-con {
+    padding: 0.7rem 0.5rem 0;
+    background: #fff;
+}
+
+.search-con p {
+    overflow: hidden;
+    font-size: 16px;
+    padding: 0.4rem  0 0;
+    clear: both;
+    color: #999;
+}
+.search-con p i{
+    float: right;
+    margin-right: 0.5rem;
+    font-size: 18px;
+}
+.search-con ul {
+    overflow: hidden;
+    color: #555;
+}
+ul.hot-search span {
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: 16px;
+    display: block;
+    border-bottom: 1px solid #efefef;
+    padding: 0.2rem 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.close-search {
+    height: 2.3rem;
+    line-height: 2.3rem;
+    color: #777;
+    position: absolute;
+    bottom: 0;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}

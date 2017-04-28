@@ -216,6 +216,7 @@
 
         </div>
     </section>
+
 </div>
 <footer class="aui-bar aui-bar-tab" id="footer">
     <div class="aui-bar-tab-item aui-active" tapmode>
@@ -241,7 +242,6 @@
         <div class="aui-bar-tab-label">我的</div>
     </div>
 </footer>
-<!--<script type="text/javascript" src="javascript/lib/api.js" ></script>-->
 <script type="text/javascript" src="/javascript/lib/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="/javascript/lib/handlebars-v4.0.2.js"></script>
 <script type="text/javascript" src="/javascript/lib/aui-tab.js" ></script>
@@ -260,28 +260,21 @@
         repeatClick: false //是否允许重复点击
     },function(ret){
         if(ret){
-            let option={};
             switch (ret.index){
                 case 1:
-                    option.left=ui.menu;
-                    option.title=ui.search;
-                    option.right=ui.comment;
-                    loadLib('/home',option);
+                    loadLib('/home');
                     break;
                 case 2:
-                    option.all=ui.search;
-                    loadLib('/shop',option);
+                    loadLib('/shop');
                     break;
                 case 3:
-                    loadLib('/store',option);
+                    loadLib('/store');
                     break;
                 case 4:
-                    option.left=ui.left;
-                    option.title='购物车';
-                    loadLib('/shop-cart',option);
+                    loadLib('/shop-cart');
                     break;
                 case 5:
-                    loadLib('/mine',option);
+                    loadLib('/mine');
                     break;
 
             }

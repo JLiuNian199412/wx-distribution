@@ -1,8 +1,19 @@
-function loadLib(url,option){
+function loadLib(url){
     let str='';
     let str2='';
-    $('.cssList').remove();
-    $('.jsList').remove();
+    let option={};
+    if(url=='/home'){
+        option.left=ui.menu;
+        option.title=ui.search;
+        option.right=ui.comment;
+    }else if(url=='/shop'){
+        option.all=ui.search;
+    }else if(url=='/shop-cart'){
+        option.left=ui.left;
+        option.title='购物车';
+    }else if(url=='/search'){
+        option.all='';
+    }
     $.get(url,function(result){
         $.each(result.cssList,function(_,v){
             str+="<link rel='stylesheet' type='text/css' href='/stylesheet/"+v+"' class='cssList'/>"
@@ -10,9 +21,12 @@ function loadLib(url,option){
         $.each(result.jsList,function(_,v){
             str2+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
         });
+        $('.cssList').remove();
+        $('.jsList').remove();
         $('head').append(str);
         $('footer').append(str2);
         option.result=result.val;
+        option.type=result.type;
         showTemplate(option)
     })
 }
@@ -33,18 +47,18 @@ function showTemplate(option){
             $('.aui-pull-right').html(option.right)
         }
     }
-    if(document.getElementById("aui-slide")){
-        var slide = new auiSlide({
-            container:document.getElementById("aui-slide"), //容器
-            // "width":300, //宽度
-            "height":184, //高度
-            "speed":500, //速度
-            "autoPlay": 3000, //自动播放
-            "loop":true,//是否循环
-            "pageShow":true,//是否显示分页器
-            "pageStyle":'dot', //分页器样式，分dot,line
-            'dotPosition':'center' //当分页器样式为dot时控制分页器位置，left,center,right
-        });
+    if(option.type=='home'){
+        homeJsLoad()
+    }else if(option.type=='shop'){
+        shopJsLoad()
+    }else if(option.type=='store'){
+        shopJsLoad()
+    }else if(option.type=='shopCart'){
+        shopJsLoad()
+    }else if(option.type=='mine'){
+        shopJsLoad()
+    }else if(option.type=='search'){
+        searchJsLoad()
     }
 }
 var ui={};
