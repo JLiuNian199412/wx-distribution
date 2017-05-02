@@ -336,10 +336,11 @@ function CurrentJsLoad(){
         $(".menu-right").css('display','none').eq($this.index()).css('display','block').scrollTop(0);
     });
     $('#search-input').click(function(){
-        sessionStorage.setItem('backUrl','/shop');
+        sessionStorage.setItem('searchBackUrl','/shop');
         loadLib('/search')
     })
     $('.menu-right ul li').click(function(){
+        sessionStorage.setItem('backUrl','/shop');
         loadLib('/shop-production')
     })
 }

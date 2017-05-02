@@ -36,8 +36,11 @@ function CurrentJsLoad(){
         }else{
             $('.isNull').removeClass('active')
         }
-    })
+    });
     $('.close-search').click(function(){
-        loadLib(sessionStorage.getItem('backUrl'))
+        loadLib(sessionStorage.getItem('searchBackUrl'));
+    });
+    $('section.search .text-all .aui-icon-left').click(function(){
+            loadLib(sessionStorage.getItem('searchBackUrl'))
     })
 }

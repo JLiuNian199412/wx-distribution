@@ -1,5 +1,5 @@
 let template=
-    '<section class="product-sequence dis-box">'+
+    '<section class="product-sequence">'+
     '<span class="box-flex a-change">默认</span>'+
     '<span class="box-flex">销量<i class="aui-iconfont aui-icon-down"></i></span>'+
     '<span class="box-flex">人气<i class="aui-iconfont aui-icon-down"></i></span>'+
@@ -34,7 +34,7 @@ function CurrentJsLoad(){
     });
 
     $('#search-input').click(function(){
-        sessionStorage.setItem('backUrl','/shop-production');
+        sessionStorage.setItem('searchBackUrl','/shop-production');
         loadLib('/search')
     })
 }

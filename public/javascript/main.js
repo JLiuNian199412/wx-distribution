@@ -136,6 +136,9 @@ function showTemplate(option){
             $('.aui-pull-right').html(option.right)
         }
     }
+    $('.aui-bar-nav .aui-icon-left').click(function(){
+        loadLib(sessionStorage.getItem('backUrl'));
+    });
     CurrentJsLoad()
 }
 var ui={};

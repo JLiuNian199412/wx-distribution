@@ -82,6 +82,7 @@ if($('#aui-slide')){
 }
 function CurrentJsLoad(){
         $('.aui-pull-right.aui-btn').click(function(){
+            sessionStorage.setItem('backUrl','/home');
             loadLib('/users/login');
         });
         var slide = new auiSlide({
@@ -96,7 +97,7 @@ function CurrentJsLoad(){
             'dotPosition':'center' //当分页器样式为dot时控制分页器位置，left,center,right
         });
     $('#search-input').click(function(){
-        sessionStorage.setItem('backUrl','/home');
+        sessionStorage.setItem('searchBackUrl','/home');
         loadLib('/search')
     })
 }
