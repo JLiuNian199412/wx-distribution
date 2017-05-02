@@ -1,3 +1,7 @@
+.aui-bar.aui-bar-nav .aui-pull-left,.aui-bar.aui-bar-nav .aui-title,.aui-bar.aui-bar-nav .aui-pull-right,.aui-bar.aui-bar-nav .aui-searchbar{
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
 body, ul, ol, li, p, h2, h3, h4, h5, h6, form, fieldset, td, img, div, dl, dt, dd {
     margin: 0;
     padding: 0;
@@ -6,20 +10,10 @@ body, ul, ol, li, p, h2, h3, h4, h5, h6, form, fieldset, td, img, div, dl, dt, d
     font-weight: normal;
 }
 /*主页搜索*/
-.aui-title .aui-searchbar{
-    background-color:transparent;
-}
-.aui-title .aui-searchbar-input{
-    background-color: #ebeced;
-    color: #9e9e9e;
-    height: 1.6rem;
-    line-height: 1.6rem;
-    border-radius: 0.8rem;
-}
-.aui-title .aui-searchbar-input input{
-    height: 1.6rem;
-}
 
+.aui-searchbar .aui-iconfont{
+    line-height: 1.8rem;
+}
 #content{
 padding-bottom:2.5rem ;
 }

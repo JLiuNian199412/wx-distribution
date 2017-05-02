@@ -78,9 +78,9 @@ let template=
     '</section>';
 localStorage.setItem('template',template);
 if($('#aui-slide')){
-    homeJsLoad();
+    CurrentJsLoad();
 }
-function homeJsLoad(){
+function CurrentJsLoad(){
         $('.aui-pull-right.aui-btn').click(function(){
             loadLib('/users/login');
         });

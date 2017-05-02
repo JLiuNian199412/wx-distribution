@@ -1,0 +1,51 @@
+.aui-bar-nav .aui-title {
+    left: 1.8rem;
+    right: 1.9rem;
+}
+.aui-bar-nav,.aui-searchbar{
+    background-color: #F6F6F9;
+}
+.aui-bar-nav.aui-bar-light .aui-pull-left .aui-iconfont,.aui-bar-nav.aui-bar-light .aui-pull-right .aui-iconfont{
+        color: #999;
+}
+.aui-title .aui-searchbar-input{
+    color: #9e9e9e;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    margin: 0 0.2rem;
+}
+.aui-title .aui-searchbar-input input{
+    height: 1.8rem;
+}
+.product-sequence {
+    text-align: center;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    font-size: 16px;
+    background: #fff;
+    width: 100%;
+    border-bottom: 5px solid #F6F6F9;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+}
+
+.product-sequence span{
+    color: #444;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    display: block;
+    width: 100%;
+}
+.product-sequence span.active {
+    color: #039be5;
+}
+.product-sequence .aui-icon-down{
+    margin-left: 0.3rem;
+    position: relative;
+    font-size: 13px;
+    transition: 0.2s ease;
+}

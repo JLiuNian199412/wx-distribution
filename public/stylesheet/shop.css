@@ -1,3 +1,15 @@
+.aui-bar.aui-bar-nav #search{
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+.aui-searchbar-input{
+    height: 1.8rem;
+    line-height: 1.8rem;
+}
+.aui-searchbar-input input{
+    height: 1.8rem;
+}
+
 .menu-left, .menu-right {
     position: fixed;
     left: 0;

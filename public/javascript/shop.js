@@ -327,7 +327,7 @@ let template='<div class="menu-left" id="sidebar">'+
     '</ul>'+
     '</section>';
 localStorage.setItem('template',template);
-function shopJsLoad(){
+function CurrentJsLoad(){
    let sidebarLi=$('#sidebar ul li');
     sidebarLi.click(function(){
         let $this=$(this);
@@ -338,5 +338,8 @@ function shopJsLoad(){
     $('#search-input').click(function(){
         sessionStorage.setItem('backUrl','/shop');
         loadLib('/search')
+    })
+    $('.menu-right ul li').click(function(){
+        loadLib('/shop-production')
     })
 }

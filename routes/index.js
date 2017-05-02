@@ -63,4 +63,12 @@ router.get('/search', function(req, res, next) {
     option.val='';
     res.json(option);
 });
+router.get('/shop-production', function(req, res, next) {
+    var option={};
+    option.cssList= ['shop-production.css'];
+    option.jsList= ['shop-production.js'];
+    option.type='shop-production';
+    option.val='';
+    res.json(option);
+});
 module.exports = router;

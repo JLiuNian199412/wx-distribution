@@ -29,7 +29,7 @@ let template=
     '<span class="close-search">点击关闭</span>'+
     '</div>';
 localStorage.setItem('template',template);
-function searchJsLoad(){
+function CurrentJsLoad(){
     $('#newinput').bind('input',function(){
         if($(this).val()!=''){
             $('.isNull').addClass('active')
