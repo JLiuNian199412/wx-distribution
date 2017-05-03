@@ -82,7 +82,6 @@ if($('#aui-slide')){
 }
 function CurrentJsLoad(){
         $('.aui-pull-right.aui-btn').click(function(){
-            sessionStorage.setItem('backUrl','/home');
             loadLib('/users/login');
         });
         var slide = new auiSlide({

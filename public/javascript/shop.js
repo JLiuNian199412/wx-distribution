@@ -340,7 +340,6 @@ function CurrentJsLoad(){
         loadLib('/search')
     })
     $('.menu-right ul li').click(function(){
-        sessionStorage.setItem('backUrl','/shop');
         loadLib('/shop-production')
     })
 }

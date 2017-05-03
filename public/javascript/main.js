@@ -70,7 +70,9 @@ function loadCss(url,index,result,option){
     if(index==result.cssList.length-1){
         styleOnload(styleNode,function(){
             let str='';
-            $('.oldCss').remove();
+            let oldCSS=$('.oldCss');
+            sessionStorage.setItem('backUrl','/'+oldCSS.attr('href').split('/')[2].split('.')[0]);
+            oldCSS.remove();
             $('.oldJs').remove();
             $.each(result.jsList,function(_,v){
                 str+="<script type='text/javascript' src='/javascript/"+v+"' class='jsList'><\/script>"
@@ -117,7 +119,49 @@ function loadLib(url){
         $.each(result.cssList,function(_,v){
             loadCss('/stylesheet/'+v,_,result,option);
         });
-    })
+    });
+}
+function backUrl(url){
+    let footBar=$('footer .aui-bar-tab-item');
+    let currentBar=$('footer .aui-bar-tab-item.aui-active').text();
+    if(url=='/home'){
+        if(footBar.eq(0).text()==currentBar){
+            loadLib(url)
+        }else{
+            footBar.eq(0).click();
+        }
+        showFooter();
+    }else if(url=='/shop'){
+        if(footBar.eq(1).text()==currentBar){
+            loadLib(url)
+        }else{
+            footBar.eq(1).click();
+        }
+        showFooter();
+    }else if(url=='/store'){
+        if(footBar.eq(2).text()==currentBar){
+            loadLib(url)
+        }else{
+            footBar.eq(2).click();
+        }
+        showFooter();
+    }else if(url=='/shop-cart'){
+        if(footBar.eq(3).text()==currentBar){
+            loadLib(url)
+        }else{
+            footBar.eq(3).click();
+        }
+        showFooter();
+    }else if(url=='/mine'){
+        if(footBar.eq(4).text()==currentBar){
+            loadLib(url)
+        }else{
+            footBar.eq(4).click();
+        }
+        showFooter();
+    }else{
+        loadLib(url)
+    }
 }
 function showTemplate(option){
     let template = Handlebars.compile(localStorage.getItem('template'));
@@ -137,7 +181,7 @@ function showTemplate(option){
         }
     }
     $('.aui-bar-nav .aui-icon-left').click(function(){
-        loadLib(sessionStorage.getItem('backUrl'));
+        backUrl(sessionStorage.getItem('backUrl'));
     });
     CurrentJsLoad()
 }

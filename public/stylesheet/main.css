@@ -10,7 +10,9 @@ body, ul, ol, li, p, h2, h3, h4, h5, h6, form, fieldset, td, img, div, dl, dt, d
     font-weight: normal;
 }
 /*主页搜索*/
-
+.aui-bar-nav .aui-btn .aui-iconfont {
+    font-size: 18px;
+}
 .aui-searchbar .aui-iconfont{
     line-height: 1.8rem;
 }

@@ -32,9 +32,26 @@ function CurrentJsLoad(){
     $('.aui-pull-right.aui-btn').click(function(){
         $('footer .aui-bar-tab-item .aui-icon-home').click();
     });
-
     $('#search-input').click(function(){
         sessionStorage.setItem('searchBackUrl','/shop-production');
-        loadLib('/search')
+        loadLib('/search');
+    });
+    $('.product-sequence .box-flex').click(function(){
+        let _self=$(this);
+        let iconFont=$('.product-sequence .active .aui-iconfont');
+        if(!_self.hasClass('a-change')&&!_self.hasClass('active')){
+            _self.parent().children().removeClass('active');
+            _self.addClass('active')
+        }else if(_self.hasClass('active')){
+            if(iconFont.hasClass('aui-icon-down')){
+                iconFont.removeClass('aui-icon-down').addClass('aui-icon-top')
+            }else{
+                iconFont.removeClass('aui-icon-top').addClass('aui-icon-down')
+            }
+        }else if(_self.hasClass('a-change')){
+            _self.parent().children().removeClass('active');
+            $('.product-sequence .aui-iconfont').removeClass('aui-icon-top').addClass('aui-icon-down')
+        }
     })
+
 }

@@ -43,7 +43,7 @@
 .product-sequence span.active {
     color: #039be5;
 }
-.product-sequence .aui-icon-down{
+.product-sequence .aui-iconfont{
     margin-left: 0.3rem;
     position: relative;
     font-size: 13px;
