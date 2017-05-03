@@ -1,3 +1,6 @@
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
 .search-div {
     background: #fff;
     position: fixed;

@@ -82,34 +82,24 @@ function loadCss(url,index,result,option){
         });
     }
 }
-function hideFooter(){
-    $('footer').hide()
-}
-function showFooter(){
-    $('footer').show()
-}
 function loadLib(url){
     let option={};
     if(url=='/home'){
         option.left=ui.menu;
         option.title=ui.search;
         option.right=ui.comment;
-        showFooter();
+
     }else if(url=='/shop'){
         option.all=ui.search;
-        showFooter();
     }else if(url=='/shop-cart'){
         option.left=ui.left;
         option.title='购物车';
-        showFooter();
     }else if(url=='/search'){
         option.all='';
-        hideFooter();
     }else if(url=='/shop-production'){
         option.left=ui.left;
         option.title=ui.search;
         option.right=ui.home;
-        hideFooter();
     }
     $.get(url,function(result){
         option.result=result.val;
