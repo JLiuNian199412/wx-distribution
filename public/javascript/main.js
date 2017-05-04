@@ -53,7 +53,6 @@ function createLink(cssURL,lnkId,charset,media){
     if(!cssURL){
         return false;
     }
-
     linkTag = document.createElement('link');
     linkTag.setAttribute('id',(lnkId || 'dynamic-style'));
     linkTag.setAttribute('rel','stylesheet');
@@ -71,7 +70,16 @@ function loadCss(url,index,result,option){
         styleOnload(styleNode,function(){
             let str='';
             let oldCSS=$('.oldCss');
-            sessionStorage.setItem('backUrl','/'+oldCSS.attr('href').split('/')[2].split('.')[0]);
+            if(sessionStorage.getItem('isBack')!='true'||!sessionStorage.getItem('backUrl')){
+                let backUrl=sessionStorage.getItem('backUrl');
+                if(backUrl==''||backUrl==null){
+                    sessionStorage.setItem('backUrl','/'+oldCSS.attr('href').split('/')[2].split('.')[0]);
+                }else{
+                    sessionStorage.setItem('backUrl',backUrl+','+'/'+oldCSS.attr('href').split('/')[2].split('.')[0]);
+                }
+            }else if(sessionStorage.getItem('isBack')=='true'){
+                sessionStorage.setItem('isBack','false')
+            }
             oldCSS.remove();
             $('.oldJs').remove();
             $.each(result.jsList,function(_,v){
@@ -111,7 +119,15 @@ function loadLib(url){
         });
     });
 }
-function backUrl(url){
+function backUrl(){
+    let urlList=sessionStorage.getItem('backUrl').split(',')
+    let url=urlList.pop();
+    if(url=='/home'){
+        sessionStorage.setItem('backUrl','');
+    }else{
+        sessionStorage.setItem('backUrl',urlList);
+    }
+    sessionStorage.setItem('isBack',"true");
     let footBar=$('footer .aui-bar-tab-item');
     let currentBar=$('footer .aui-bar-tab-item.aui-active').text();
     if(url=='/home'){
@@ -120,35 +136,30 @@ function backUrl(url){
         }else{
             footBar.eq(0).click();
         }
-        showFooter();
     }else if(url=='/shop'){
         if(footBar.eq(1).text()==currentBar){
             loadLib(url)
         }else{
             footBar.eq(1).click();
         }
-        showFooter();
     }else if(url=='/store'){
         if(footBar.eq(2).text()==currentBar){
             loadLib(url)
         }else{
             footBar.eq(2).click();
         }
-        showFooter();
     }else if(url=='/shop-cart'){
         if(footBar.eq(3).text()==currentBar){
             loadLib(url)
         }else{
             footBar.eq(3).click();
         }
-        showFooter();
     }else if(url=='/mine'){
         if(footBar.eq(4).text()==currentBar){
             loadLib(url)
         }else{
             footBar.eq(4).click();
         }
-        showFooter();
     }else{
         loadLib(url)
     }
@@ -157,9 +168,9 @@ function showTemplate(option){
     let template = Handlebars.compile(localStorage.getItem('template'));
     $('#content').html(template(option.result));
     if(option.all){
-        $('header').html(option.all)
+        $('header.aui-bar-nav').html(option.all)
     }else{
-        $('header').html('<a class="aui-pull-left aui-btn"> </a> <div class="aui-title"> </div> <a class="aui-pull-right aui-btn "> </a>');
+        $('header.aui-bar-nav').html('<a class="aui-pull-left aui-btn"> </a> <div class="aui-title"> </div> <a class="aui-pull-right aui-btn "> </a>');
         if(option.title){
             $('.aui-title').html(option.title);
         }
@@ -171,7 +182,7 @@ function showTemplate(option){
         }
     }
     $('.aui-bar-nav .aui-icon-left').click(function(){
-        backUrl(sessionStorage.getItem('backUrl'));
+        backUrl();
     });
     CurrentJsLoad()
 }

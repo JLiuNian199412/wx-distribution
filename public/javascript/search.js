@@ -41,6 +41,6 @@ function CurrentJsLoad(){
         loadLib(sessionStorage.getItem('searchBackUrl'));
     });
     $('section.search .text-all .aui-icon-left').click(function(){
-            loadLib(sessionStorage.getItem('searchBackUrl'))
+            backUrl()
     })
 }

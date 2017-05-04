@@ -53,5 +53,8 @@ function CurrentJsLoad(){
             $('.product-sequence .aui-iconfont').removeClass('aui-icon-top').addClass('aui-icon-down')
         }
     })
+    $('.product-div').click(function(){
+        loadLib('/production-detail');
+    })
 
 }
