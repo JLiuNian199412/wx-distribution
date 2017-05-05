@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <link rel="stylesheet" type="text/css" href="/stylesheet/lib/aui.css"/>
     <link rel="stylesheet" type="text/css" href="/stylesheet/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/stylesheet/shop-cart.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="/stylesheet/shop-cart.css"/>-->
     {{#each cssList}}
     <link rel='stylesheet' type="text/css" class="cssList" href='/stylesheet/{{this}}'/>
     {{/each}}
@@ -33,7 +33,7 @@
     </a>
 </header>
 <div id="content">
-    <!--   <div id="aui-slide">
+       <div id="aui-slide">
            <div class="aui-slide-wrap" >
                <div class="aui-slide-node bg-dark">
                    <img src="/images/slide1.png" />
@@ -45,7 +45,7 @@
                    <img src="/images/slide3.png" />
                </div>
            </div>
-           <div class="aui-slide-page-wrap">&lt;!&ndash;分页容器&ndash;&gt;</div>
+           <div class="aui-slide-page-wrap"><!--分页容器--></div>
        </div>
        <section class="aui-grid">
            <div class="aui-row">
@@ -217,47 +217,7 @@
                </div>
 
            </div>
-       </section>-->
-    <div class="con">
-        <p class="flow-price">
-            共<b id="total_number">3</b>件商品，总价(不含运费)：<b class="ect-colory" id="goods_subtotal">￥1497.00元</b>
-        </p>
-        <section class="ect-pro-list">
-            <ul>
-                <li class="n-flow1-box">
-                    <div class="j-chack-box n-flow-ckecked">
-                        <div class="chack-input-box">
-                            <label><input type="checkbox" name="bike" /></label>
-                        </div>
-                    </div>
-                    <div class="n-flow-right-sum">
-                        <div class="ect-clear-over">
-                            <span ><img src="http://shop.ectouch.cn/v2/images/201509/thumb_img/2296_thumb_G_1441858505320.jpg" ></span>
-                            <dl>
-                                <dt><h4 class="title"><span >旅游季包邮Crocs卡骆驰男女中性运动迪特洞洞鞋沙滩凉鞋|11991</span></h4></dt>
-                                <dd class="ect-color999">
-                                    <p></p>
-                                    <p><strong class="ect-colory">￥499.00元</strong></p>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="flow-num-del">
-                            <div class="input-group wrap">
-                                <span class="input-group-addon">-</span>
-                                <input type="text" class="form-num form-contro" name="505" id="goods_number505" autocomplete="off" value="3" onfocus="back_goods_number(505)" onblur="change_goods_number('2',505)">
-                                <span class="input-group-addon">+</span> </div>
-                            <div class="pull-right">
-                              <span class="aui-iconfont aui-icon-trash"></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <div class="flow-jiesuan ect-padding-lr ect-padding-tb" style="background: #f7f7f7;">
-            <span class="btn-info">立即结算</span>
-        </div>
-    </div>
+       </section>
 </div>
 <footer class="aui-bar aui-bar-tab" id="footer">
     <div class="aui-bar-tab-item aui-active" tapmode>

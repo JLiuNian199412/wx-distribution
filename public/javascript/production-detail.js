@@ -87,7 +87,7 @@ let template=
     '</form>'+
     '</div>'+
     '</div>'+
-    '<div id="n-goods" class="goods-info" style="margin-bottom: 3.8rem;margin-top:0.1rem;">'+
+    '<div id="n-goods" class="goods-info" style="margin-bottom: 1rem;margin-top:0.1rem;">'+
     '<div class="tab-title">'+
     '<ul class="dis-box">'+
     '<li class="box-flex active">商品描述</li>'+

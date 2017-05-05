@@ -3,14 +3,42 @@
     overflow: hidden;
 }
 .flow-price {
-    background: #f7f7f7;
+    background-color: #fff;
+    border-bottom: 1px #e3e3e3 solid;
+    box-sizing: border-box;
+}
+.flow-price .shop-tips{
+    font-size: 14px;
+    width: 68%;
+    padding-left:1rem ;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.flow-price .select-all{
+    width: 30%;
+    padding: 0.35rem 1rem 0.35rem 0.35rem;
+    text-align: right;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.flow-price .select-all input{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.2rem;
+    border-radius: 100%;
+}
+.flow-price .select-all span{
+    font-size: 16px;
+}
+.price-tips{
     padding: 0.35rem;
+    float: right;
 }
 b, strong {
     font-weight: 700;
 }
 .ect-colory {
-    color: #1cbb7f !important;
+    color: #e91e63 !important;
 }
 .ect-pro-list {
     border-bottom: 1px #e3e3e3 solid;
@@ -67,15 +95,16 @@ b, strong {
 .wrap.input-group {
     border: 1px solid #e3e3e3;
     width: 7rem;
+    height: 1.6rem;
     float: left!important;
     position: relative;
-    display: table;
     border-collapse: separate;
 }
 .wrap .input-group-addon {
     width: 1.6rem;
-    font-size: 12px;
-    line-height: 1.6em;
+    font-size: 24px;
+    height: 1.6rem;
+    line-height: 1.4rem;
     padding: 0;
     border-radius: 0;
     border: none;
@@ -83,15 +112,17 @@ b, strong {
     font-weight: 400;
     color: #555;
     text-align: center;
-    display: table-cell;
+    display: inline-block;
 }
 .wrap .form-contro {
     font-size: 16px;
     height: 1.6rem;
     text-align: center;
     padding: 0 0.25rem;
-    width: 100%;
+    width: 3.6rem;
     background: none;
+    display: inline-block;
+    float: left;
     border-left-color: #e5e5e5;
     border-top: none;
     border-bottom: none;
@@ -116,7 +147,7 @@ b, strong {
     padding: 0.3rem 0;
     font-size: 18px;
     color: #fff !important;
-    background: #1cbb7f !important;
+    background: #00bcd4 !important;
     height: auto;
     overflow: hidden;
     display: inline-block;
@@ -126,4 +157,55 @@ b, strong {
     white-space: nowrap;
     vertical-align: middle;
     border-radius: 4px;
+}
+.chack-input-box input.aui-checkbox{
+    border-radius: 100%;
+    width: 1rem;
+    height: 1rem;
+}
+.o-t-error {
+    margin-top: 5rem;
+    display: none;
+}
+.o-t-error .img {
+    margin: 0 auto;
+    width: 5.5rem;
+    height: 5.5rem;
+    background: #ccc;
+    border-radius: 100%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.o-t-error .img img {
+    width: 3rem;
+    vertical-align: middle;
+}
+.o-t-error .sub {
+    margin-top: 0.2rem;
+    text-align: center;
+    color: #999;
+}
+.o-t-error .btn {
+    text-align: center;
+    margin-top:0.5rem;
+}
+.o-t-error .btn span {
+    display: inline-block;
+    border: 1px solid #051b28;
+    border-radius: 0.2rem;
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+}
+
+.o-t-error .title {
+    margin-top: 0.6rem;
+    text-align: center;
+    font-size: 14px;
 }

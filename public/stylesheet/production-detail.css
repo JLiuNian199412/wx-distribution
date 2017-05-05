@@ -371,7 +371,7 @@ span.t-jiantou {
     right: 0;
     bottom: 0;
     box-sizing: border-box;
-    padding: 0.5rem;
+    padding: 0.4rem;
     z-index: 9;
     background: #fafafc;
     border-top: 1px solid #efefef;
@@ -383,7 +383,7 @@ span.t-jiantou {
     position: relative;
 }
 .filter-btn .filter-btn-a i {
-    font-size: 22px;
+    font-size: 18px;
     display: block;
     color: #636363;
 }
@@ -411,8 +411,8 @@ span.t-jiantou {
     background: #f4a213;
     border: 1px solid #e19511;
     margin: 0 0.4rem 0 1.2rem;
-    height: 2.5rem;
-    line-height: 1.6rem;
+    height: 2.2rem;
+    line-height: 1.4rem;
     color: #fff;
     font-size: 17px;
     text-align: center;
@@ -424,8 +424,8 @@ span.t-jiantou {
     background: #1cbb7f;
     border: 1px solid #1cbb7f;
     margin: 0 0.5rem;
-    height: 2.5rem;
-    line-height: 1.6rem;
+    height: 2.2rem;
+    line-height: 1.4rem;
     color: #fff;
     font-size: 17px;
     text-align: center;
@@ -563,7 +563,7 @@ h4.t-remark{
     position: relative;
 }
 .ect-button-more{
-    padding: 0.7rem;
+    padding: 0.45rem;
     background-color: #f5f5f8;
 }
 .ect-button-more .btn-cart{
