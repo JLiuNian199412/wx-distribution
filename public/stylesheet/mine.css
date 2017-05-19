@@ -1,0 +1,243 @@
+.dis-box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+}
+.padding-all {
+    padding: 0.75rem;
+}
+.ellipsis-one {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.box-flex {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    display: block;
+    width: 100%;
+}
+.b-color-f {
+    background: #fff;
+}
+
+.m-top10 {
+    margin-top: 0.5rem;
+}
+.my-bottom {
+    border-bottom: 1px solid #f6f6f9;
+}
+header.aui-bar.aui-bar-nav{
+    display: none;
+}
+.con {
+    margin-bottom: 2.5rem;
+}
+.my-admin-header-box {
+    background: url(../images/uer_header_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.user-right-maxbox, .my-user-box, .user-ing-list li {
+    position: relative;
+    z-index: 1;
+}
+.my-user-box {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.user-head-img-box {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4rem;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.8);
+}
+.g-s-i-title-a {
+    padding-left: 0.75rem;
+    padding-top: 0.8rem;
+}
+.g-s-i-title-a p{
+    font-size: 13px;
+    color: #fff;
+}
+.user-admin-size {
+    color: #fff;
+    font-size: 18px;
+}
+.is-shezi {
+    font-size: 18px;
+    vertical-align: top;
+}
+.my-user-right-cont {
+    float: left;
+    margin-left: 0.2rem;
+}
+.is-shezi, .my-dingdan-color {
+    color: #fff;
+}
+.my-t-remark {
+    font-size: 15px;
+    color: #fff;
+}
+
+p.my-user-right-cont span{
+    line-height: 28px;
+}
+.user-nav-box{
+    padding: 0.4rem 0;
+    text-align: center;
+}
+.user-nav-box h4{
+    font-size: 20px;
+    color: #fff;
+}
+.user-nav-box p{
+    color: #fff;
+    font-size: 13px;
+}
+.my-u-title-size {
+    font-size:17px;
+    color: #333;
+}
+.is-user-size {
+    font-size: 20px;
+    margin-right: 0.35rem;
+    color: #1cbb7f;
+}
+.t-goods1{
+    font-size: 15px;
+    margin-top: 0.18rem;
+    text-align: right;
+    color: #777;
+}
+span.t-jiantou {
+    position: relative;
+    font-size: 15px;
+    padding-right: 0.7rem;
+    top:0.2rem;
+    left: 0.1rem;
+    color: #555;
+}
+span.t-jiantou .aui-icon-right{
+    position: absolute;
+}
+.user-money-list{
+    padding: 1rem 0;
+    text-align: center;
+}
+.user-money-list span {
+    position: relative;
+    padding: 0 0.7rem;
+}
+.my-dingdan li {
+    position: relative;
+}
+.my-dingdan li h4{
+    font-size: 15px;
+}
+.my-img-size {
+    font-size: 22px;
+    color: #777;
+}
+li .aui-badge{
+    background: #1cbb7f;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+.user-fu-box span{
+    border-right: 1px solid #f6f6f9;
+    border-bottom: 1px solid #f6f6f9;
+    box-sizing: border-box;
+    padding: 0.8rem 0;
+    text-align: center;
+}
+.user-fu-box .aui-iconfont {
+    color: #e95050;
+}
+.user-fu-box i {
+    font-size: 24px;
+}
+.my-u-title-size {
+    font-size: 17px;
+    color: #333;
+}
+.is-user-size {
+    font-size: 21px;
+    margin-right: 0.3rem;
+}
+.n-shanchutupian{
+    margin-top:0.15rem;
+    color: #777;
+}
+.n-shanchutupian i{
+    font-size: 17px;
+}
+.q-title {
+    color: #888;
+    font-size: 15px;
+}
+.goods-shop-pic{
+    overflow: hidden;
+    margin-top: 1px;
+}
+.swiper-container-horizontal{
+    overflow: hidden;
+}
+.swiper-slide, .swiper-wrapper {
+    height: auto;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -ms-transition-property: -ms-transform;
+    transition-property: transform;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.product-one-list li, .product-one-list1 li {
+    width: 36%;
+    margin-right: 0.4rem;
+    float: left;
+}
+.product-div {
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.product-div-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.product-div img {
+    width: 100%;
+    display: block;
+}
+.product-text{
+    margin-top: .35rem;
+}
+.product-one-list1 li h4 {
+    font-size: 14px;
+    line-height: 15px;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

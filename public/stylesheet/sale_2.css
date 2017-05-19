@@ -1,0 +1,159 @@
+header.aui-bar.aui-bar-nav{
+    display: none;
+}
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+.bg-color-whie{
+    background: #fff;
+}
+
+.open-header-bg {
+    background: #fcfcfd;
+    border-bottom: 1px solid #F6F6F9;
+}
+.header-left-box {
+    height: 2rem;
+    top: 0.4rem;
+}
+.open-header-bg .o-hs-x.active {
+    border-bottom: 2px solid #1CBB7F;
+}
+.open-header-bg .o-hs-x {
+    border-bottom: 2px solid #d3d4dc;
+}
+.header-x {
+    width: 100%;
+    top: 0.5rem;
+}
+.open-header-bg .o-hs-bg.active {
+    background: #1CBB7F;
+}
+.open-header-bg .o-hs-bg {
+    background: #d3d4dc;
+}
+.header-y {
+    width: 1.2rem;
+    height:  1.2rem;
+    border-radius: 100%;
+    margin: 0 auto;
+    left: 42%;
+}
+.header-y span {
+    display: block;
+    line-height: 1.2rem;
+}
+.open-header-bg .o-hs.active {
+    color: #1CBB7F;
+}
+.open-header-bg .o-hs {
+    color: #d3d4dc;
+}
+.open-header-bg label {
+    text-align: center;
+    display: block;
+    font-size: 14px;
+}
+.n-ti-bg h4 {
+    margin-bottom: 0.3rem;
+    font-size: 18px;
+}
+.n-set3_list2 {
+    font-size: 15px;
+    color: #C60;
+}
+.ect-radio input[type=checkbox]{
+    display:none;
+}
+.ect-radio label, .ect-checkbox label {
+    margin-bottom: 0;
+}
+.ect-radio label i, .ect-checkbox label i {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.1rem;
+    display: block;
+    float: left;
+    margin-top: 0.05rem;
+    border-radius: 100%;
+    background: rgba(255,255,255,0);
+    border: 1px solid #bbb;
+}
+.ect-radio input:checked+label i, .ect-checkbox input:checked+label i {
+    color: #F00;
+    background: url(/images/radio.png) center center #1CBB7F no-repeat;
+    background-size: 80%;
+    border: 1px #1CBB7F solid;
+}
+
+.sp_box {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 0.12rem;
+}
+.sp_box .sp_box_div {
+    width: 50%;
+    padding: 0.12rem;
+    float: left;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.sp_box1 {
+    background-color: #F9F9F9;
+}
+.sp_box2 {
+    background-color: #1CBB7F;
+}
+.sp_box1, .sp_box2 {
+    width: 100%;
+    padding: 1.2rem 0;
+}
+.display-none {
+    display: none;
+}
+.sp_box1 h4 {
+    color: #666;
+}
+.sp_box2 h4 {
+    color: #fff;
+}
+.sp_title {
+    line-height: 2.5rem;
+}
+.sp_box1 span {
+    color: #666;
+}
+.sp_box2 span {
+    color: #fff;
+}
+.sp_box2 span, .sp_box1 span {
+    font-size: 12px;
+    text-align: center;
+    display: block;
+}
+.n-fixed-box {
+    bottom: 0rem;
+    position: fixed;
+    border-top: 1px solid #F5F5F9;
+    background-color: #FFF;
+    left: 0;
+    right: 0;
+}
+.padding-alla {
+    padding: 0.5rem 0.7rem;
+}
+.t-a-center {
+    text-align: center;
+    margin: 0 auto;
+}
+.n-set-4-submit {
+    font-size: 18px;
+    text-align: center;
+height: 2rem;
+    line-height: 2rem;
+    background: #1CBB7F;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 0.3rem;
+}

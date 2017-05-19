@@ -79,4 +79,28 @@ router.get('/production-detail', function(req, res, next) {
     option.val='';
     res.json(option);
 });
+router.get('/sale_1', function(req, res, next) {
+    var option={};
+    option.cssList= ['sale_1.css'];
+    option.jsList= ['sale_1.js'];
+    option.type='sale_1';
+    option.val='';
+    res.json(option);
+});
+router.get('/sale_2', function(req, res, next) {
+    var option={};
+    option.cssList= ['sale_2.css'];
+    option.jsList= ['sale_2.js'];
+    option.type='sale_2';
+    option.val='';
+    res.json(option);
+});
+router.get('/sale_3', function(req, res, next) {
+    var option={};
+    option.cssList= ['sale_3.css'];
+    option.jsList= ['sale_3.js'];
+    option.type='sale_3';
+    option.val='';
+    res.json(option);
+});
 module.exports = router;

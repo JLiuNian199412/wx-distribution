@@ -1,0 +1,135 @@
+header.aui-bar.aui-bar-nav{
+    display: none;
+}
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+
+.share-div {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: none;
+}
+.share-div.active {
+    display: inherit;
+}
+.share-div img {
+    position: absolute;
+    right: 0.12rem;
+    top: 0.24rem;
+    vertical-align: middle;
+}
+.ect-index-header {
+    width: 100%;
+    box-sizing: border-box;
+    /* background-image: url(../sale/images/index_bg.jpg); */
+    position: relative;
+    height: 7.5rem;
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.ect-index-info {
+    position: absolute;
+    padding: 0 0.6rem;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.ect-index-info, .ect-index-menu, .ect-index-menu ul {
+    box-sizing: border-box;
+    width: 100%;
+}
+.ect-index-detail {
+    text-align: left;
+    display: block;
+    width: 3.6rem;
+    height: 3.6rem;
+    position: absolute;
+    bottom: -1.2rem;
+    z-index: 999;
+    left: 0.6rem;
+}
+.ect-index-info .ect-index-detail img {
+    width: 3.6rem;
+    height: 3.6rem;
+    margin-left: 0;
+}
+.ect-index-name {
+    margin-top: 0.18rem;
+    color: #fff;
+    position: absolute;
+    bottom: 1rem;
+    font-size: 1rem;
+    right: 0.6rem;
+}
+.ect-index-name h1 {
+    font-weight: normal;
+    font-size: 13px;
+    color: #fff;
+}
+.ect-index-header>img {
+    width: 100%;
+    height: 7.5rem;
+}
+.ect-index-info, .ect-index-menu, .ect-index-menu ul {
+    box-sizing: border-box;
+    width: 100%;
+}
+.ect-index-menu ul li {
+    padding: 0.48rem 0;
+    width: 25%;
+    box-sizing: border-box;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+}
+.ect-index-menu ul li span {
+    border-right: 1px solid #e0e0e0;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.ect-index-menu ul li span h3 {
+    height: 1rem;
+    font-size: 18px;
+    color: #1CBB7F;
+    line-height: 1rem;
+    text-align: center;
+}
+.ect-index-menu ul li span h4 {
+     height: 0.7rem;
+    font-size: 10px;
+    color: #999;
+    line-height: 0.9rem;
+    text-align: center;
+}
+.ect-index-menu-share {
+    height: 1rem;
+    text-align: center;
+}
+.menu-share-pic {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-top: 0.24rem;
+    background: url(../images/index-share.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.index-more {
+    width: 100%;
+    padding: 2%;
+    height: auto;
+    overflow: hidden;
+}
+.index-more-list {
+    overflow: hidden;
+}

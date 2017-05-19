@@ -200,4 +200,19 @@ ui.menu= '<span class="aui-iconfont aui-icon-menu"></span>';
 ui.comment= '<span class="aui-iconfont aui-icon-comment"></span>';
 ui.left= '<span class="aui-iconfont aui-icon-left"></span>';
 ui.home= '<span class="aui-iconfont aui-icon-home"></span>';
-
+var URL={};
+URL.host=window.location.host;
+URL.param=function (param) {
+    let a=window.location.search.substring(1);
+    let b=[];
+    if(a.split('&').length>0){
+        for(let i=0;i<a.split('&').length;i++){
+            b[a.split('&')[i].split('=')[0]]=a.split('&')[i].split('=')[1];
+        }
+        if(param){
+            return b[param]
+        }else{
+            return b
+        }
+    }
+};

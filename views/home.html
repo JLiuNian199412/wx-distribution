@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <link rel="stylesheet" type="text/css" href="/stylesheet/lib/aui.css"/>
     <link rel="stylesheet" type="text/css" href="/stylesheet/main.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="/stylesheet/shop-cart.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/stylesheet/store-manage.css"/>
     {{#each cssList}}
     <link rel='stylesheet' type="text/css" class="cssList" href='/stylesheet/{{this}}'/>
     {{/each}}
@@ -32,192 +32,350 @@
         <span class="aui-iconfont aui-icon-comment"></span>
     </a>
 </header>
-<div id="content">
-       <div id="aui-slide">
-           <div class="aui-slide-wrap" >
-               <div class="aui-slide-node bg-dark">
-                   <img src="/images/slide1.png" />
-               </div>
-               <div class="aui-slide-node bg-dark">
-                   <img src="/images/slide2.png" />
-               </div>
-               <div class="aui-slide-node bg-dark">
-                   <img src="/images/slide3.png" />
-               </div>
-           </div>
-           <div class="aui-slide-page-wrap"><!--分页容器--></div>
-       </div>
-       <section class="aui-grid">
-           <div class="aui-row">
-               <div class="aui-col-xs-3">
-                   <img src="/images/nav_0.png" alt="" class="index_nav">
-                   <div class="aui-grid-label">全部分类</div>
-               </div>
-               <div class="aui-col-xs-3">
-                   <img src="/images/nav_1.png" alt="" class="index_nav">
-                   <div class="aui-grid-label">促销活动</div>
-               </div>
-               <div class="aui-col-xs-3">
-                   <img src="/images/nav_2.png" alt="" class="index_nav">
-                   <div class="aui-grid-label">热门搜索</div>
-               </div>
-               <div class="aui-col-xs-3">
-                   <img src="/images/nav_3.png" alt="" class="index_nav">
-                   <div class="aui-grid-label">我的订单</div>
-               </div>
-           </div>
-       </section>
-       <section class="aui-grid">
-           <div class="aui-row">
-               <div class="aui-col-xs-6 index-theme-icon">
-                   <img src="/images/index-theme-icon1.gif" alt="">
-               </div>
-               <div class="aui-col-xs-6 index-theme-icon">
-                   <img src="/images/index-theme-icon2.gif" alt="">
-               </div>
-               <div class="aui-col-xs-6 index-theme-icon">
-                   <img src="/images/index-theme-icon3.gif" alt="">
-               </div>
-               <div class="aui-col-xs-6 index-theme-icon">
-                   <img src="/images/index-theme-icon4.gif" alt="">
-               </div>
-           </div>
-       </section>
-       <div class="n-cate-box">
-           <p class="index-title"><i class="iconfont icon-cainixihuan is-cainixihuan"></i>猜你喜欢</p>
-           <p class="index-small-title">实时推荐最适合您的宝贝</p>
-       </div>
-       <section class="aui-grid product-list">
-           <div class="aui-row">
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product1.jpg" alt="">
-                       </div>
-                       <h4>十月结晶孕产妇漱口水月子漱口液 孕妇产褥期产后待产用品250ml</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product2.jpg" alt="">
-                       </div>
-                       <h4>哈优孕妇护肤品套装专用孕妇洗面奶保湿孕妇化妆品套装天然旗舰店</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product3.jpg" alt="">
-                       </div>
-                       <h4>孕亲 孕妇专用护肤品旗舰店 孕妇护肤品纯天然化妆品补水保湿套装</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product4.jpg" alt="">
-                       </div>
-                       <h4>萃芙理 孕妇橄榄油 妊娠纹产前后消除预防修复产妇专用护肤化妆品</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product5.jpg" alt="">
-                       </div>
-                       <h4>孕妇护肤品 嗳呵源生酵素妈咪保湿洁面乳150g 补水洗面奶 促销</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product6.jpg" alt="">
-                       </div>
-                       <h4>然方孕妇橄榄油妊娠纹预防产后消除淡化滋养修复护理油孕妇护肤品</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product7.jpg" alt="">
-                       </div>
-                       <h4>雅滋美特 孕妇护肤品套装 孕妇化妆品天然补水保湿专用旗舰店正品</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product8.jpg" alt="">
-                       </div>
-                       <h4>雪园堂孕妇护肤品洗护套装孕妇洗发水沐浴露护发素孕期专用纯天然</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product9.jpg" alt="">
-                       </div>
-                       <h4>Samsung/三星 GALAXY S5 SM- G9006V</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product10.jpg" alt="">
-                       </div>
-                       <h4>孕妆日记孕妇bb霜 纯天然裸妆遮瑕保湿防晒 孕妇护肤品专用化妆品</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product11.jpg" alt="">
-                       </div>
-                       <h4>贝拉小蜜蜂 孕妇护肤品套装 孕妇化妆品天然 补水保湿旗舰店进口</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product12.jpg" alt="">
-                       </div>
-                       <h4>澳芙园 孕妇洁面乳 纯天然保湿控油孕期专用补水孕妇洗面奶 正品</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product13.jpg" alt="">
-                       </div>
-                       <h4>Samsung/三星 SM-G3588V</h4>
-                       <p><span>￥115.00元</span></p>
-                   </div>
-               </div>
-               <div class="aui-col-xs-6 product-div">
-                   <div class="product-content">
-                       <div class="product-img">
-                           <img src="/images/product14.jpg" alt="">
-                       </div>
-                       <h4>Samsung/三星 G9008W</h4>
-                       <p><span>￥4099.00元</span></p>
-                   </div>
-               </div>
+<div id="content" class="bg-color-whie">
+    <!--<div id="aui-slide">
+        <div class="aui-slide-wrap" >
+            <div class="aui-slide-node bg-dark">
+                <img src="/images/slide1.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="/images/slide2.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="/images/slide3.png" />
+            </div>
+        </div>
+        <div class="aui-slide-page-wrap">&lt;!&ndash;分页容器&ndash;&gt;</div>
+    </div>
+    <section class="aui-grid">
+        <div class="aui-row">
+            <div class="aui-col-xs-3">
+                <img src="/images/nav_0.png" alt="" class="index_nav">
+                <div class="aui-grid-label">全部分类</div>
+            </div>
+            <div class="aui-col-xs-3">
+                <img src="/images/nav_1.png" alt="" class="index_nav">
+                <div class="aui-grid-label">促销活动</div>
+            </div>
+            <div class="aui-col-xs-3">
+                <img src="/images/nav_2.png" alt="" class="index_nav">
+                <div class="aui-grid-label">热门搜索</div>
+            </div>
+            <div class="aui-col-xs-3">
+                <img src="/images/nav_3.png" alt="" class="index_nav">
+                <div class="aui-grid-label">我的订单</div>
+            </div>
+        </div>
+    </section>
+    <section class="aui-grid">
+        <div class="aui-row">
+            <div class="aui-col-xs-6 index-theme-icon">
+                <img src="/images/index-theme-icon1.gif" alt="">
+            </div>
+            <div class="aui-col-xs-6 index-theme-icon">
+                <img src="/images/index-theme-icon2.gif" alt="">
+            </div>
+            <div class="aui-col-xs-6 index-theme-icon">
+                <img src="/images/index-theme-icon3.gif" alt="">
+            </div>
+            <div class="aui-col-xs-6 index-theme-icon">
+                <img src="/images/index-theme-icon4.gif" alt="">
+            </div>
+        </div>
+    </section>
+    <div class="n-cate-box">
+        <p class="index-title"><i class="iconfont icon-cainixihuan is-cainixihuan"></i>猜你喜欢</p>
+        <p class="index-small-title">实时推荐最适合您的宝贝</p>
+    </div>
+    <section class="aui-grid product-list">
+        <div class="aui-row">
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product1.jpg" alt="">
+                    </div>
+                    <h4>十月结晶孕产妇漱口水月子漱口液 孕妇产褥期产后待产用品250ml</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product2.jpg" alt="">
+                    </div>
+                    <h4>哈优孕妇护肤品套装专用孕妇洗面奶保湿孕妇化妆品套装天然旗舰店</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product3.jpg" alt="">
+                    </div>
+                    <h4>孕亲 孕妇专用护肤品旗舰店 孕妇护肤品纯天然化妆品补水保湿套装</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product4.jpg" alt="">
+                    </div>
+                    <h4>萃芙理 孕妇橄榄油 妊娠纹产前后消除预防修复产妇专用护肤化妆品</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product5.jpg" alt="">
+                    </div>
+                    <h4>孕妇护肤品 嗳呵源生酵素妈咪保湿洁面乳150g 补水洗面奶 促销</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product6.jpg" alt="">
+                    </div>
+                    <h4>然方孕妇橄榄油妊娠纹预防产后消除淡化滋养修复护理油孕妇护肤品</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product7.jpg" alt="">
+                    </div>
+                    <h4>雅滋美特 孕妇护肤品套装 孕妇化妆品天然补水保湿专用旗舰店正品</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product8.jpg" alt="">
+                    </div>
+                    <h4>雪园堂孕妇护肤品洗护套装孕妇洗发水沐浴露护发素孕期专用纯天然</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product9.jpg" alt="">
+                    </div>
+                    <h4>Samsung/三星 GALAXY S5 SM- G9006V</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product10.jpg" alt="">
+                    </div>
+                    <h4>孕妆日记孕妇bb霜 纯天然裸妆遮瑕保湿防晒 孕妇护肤品专用化妆品</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product11.jpg" alt="">
+                    </div>
+                    <h4>贝拉小蜜蜂 孕妇护肤品套装 孕妇化妆品天然 补水保湿旗舰店进口</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product12.jpg" alt="">
+                    </div>
+                    <h4>澳芙园 孕妇洁面乳 纯天然保湿控油孕期专用补水孕妇洗面奶 正品</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product13.jpg" alt="">
+                    </div>
+                    <h4>Samsung/三星 SM-G3588V</h4>
+                    <p><span>￥115.00元</span></p>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 product-div">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="/images/product14.jpg" alt="">
+                    </div>
+                    <h4>Samsung/三星 G9008W</h4>
+                    <p><span>￥4099.00元</span></p>
+                </div>
+            </div>
 
-           </div>
-       </section>
+        </div>
+    </section>-->
+    <div id="box">
+        <div class="n-sale-bg">
+            <header class="p-bt  n-m-b">
+                <ul class="dis-box">
+                    <li class="n-sale-left-box">
+                        <div class="n-sale-headerimg-box">
+                            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=shop_config&amp;u=40330">
+                                <img class="index_image2" src="/v2/themes/default/images/idx_user.png">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="box-flex">
+                        <div class="n-sale-right-box">
+                            <h4>liunian</h4>
+                            <p>ss</p>
+                            <time class="color-whie f-03">开店时间：2017-05-18 01:21:58</time>
+                        </div></li>
+                    <li class="sale-right-width">
+                        <a href="/v2/index.php?m=default&amp;c=sale&amp;a=shop_config&amp;u=40330">
+                            <div class="n-sale-icon-size"><span><i class="iconfont icon-shezhi is-n-sezhi-size"></i></span></div>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            <div class="padding-all n-sale-nav">
+                <ul class="dis-box">
+                    <li class="box-flex">
+                        <p>总销售额（元）</p>
+                        <h4>0.00</h4>
+                    </li>
+                    <li class="box-flex">
+                        <p>佣金总额（元）</p>
+                        <h4>0.00</h4>
+                    </li>
+                    <li class="box-flex">
+                        <p>今日收入（元）</p>
+                        <h4>0.00</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="n-sale-list-box">
+
+            <a href="/v2/index.php?m=default&amp;c=store&amp;a=index&amp;drp_id=4460&amp;u=40330">
+                <ul class="int-nav-box-1 my-new-m padding-all shop-b">
+                    <li>
+                        <label class="cate-shop-box"><i class="iconfont icon-dianpu"></i><span>我的微店</span></label>
+                        <span class="t-jiantou f-r"><i class="iconfont icon-jiantou1 tf-180 jian-top"></i></span>
+                    </li>
+                </ul>
+            </a>
+
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=my_goods&amp;u=40330">
+                <ul class="int-nav-box-1 my-new-m padding-all shop-b">
+                    <li>
+                        <label class="cate-shop-box"><i class="iconfont icon-quanbushangpin"></i><span>我的商品</span></label>
+                        <span class="t-jiantou f-r"><i class="iconfont icon-jiantou1 tf-180 jian-top"></i></span>
+                    </li>
+                </ul>
+            </a>
+
+            <ul class="int-nav-box-a my-new-m padding-all shop-b">
+                <li>
+                    <label class="cate-shop-box"><i class="iconfont icon-fenxiao a_left n-is--icont-1"></i><span>我的</span></label>
+                    <span class="t-jiantou fr n-sect-i"><i class="iconfont icon-jiantou1 tf-180 jian-top int-jt-box"></i></span>
+                </li>
+            </ul>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=order_list&amp;u=40330">
+                <div class="int-cont-a padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">本店订单</lable>
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=my_shop_info&amp;u=40330">
+                <div class="int-cont-a padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">我的分店</lable>
+                </div>
+            </a>
+
+            <ul class="int-nav-box-b my-new-m padding-all shop-b">
+                <li>
+                    <label class="cate-shop-box"><i class="iconfont icon-gonggaofuzhi a_left n-is--icont-1"></i><span>我的会员</span></label>
+                    <span class="t-jiantou fr n-sect-i"><i class="iconfont icon-jiantou1 tf-180 jian-top int-jt-box"></i></span>
+                </li>
+            </ul>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=user_list&amp;key=wfk&amp;u=40330">
+                <div class="int-cont-b padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">下单未付款会员</lable>
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=user_list&amp;key=yfk&amp;u=40330">
+                <div class="int-cont-b padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">下单已付款会员</lable>
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=user_list&amp;key=gz&amp;u=40330">
+                <div class="int-cont-b padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">关注公众号会员</lable>
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=user_list&amp;key=fk&amp;u=40330">
+                <div class="int-cont-b padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">访客</lable>
+                </div>
+            </a>
+
+
+            <ul class="int-nav-box-c my-new-m padding-all shop-b">
+                <li>
+                    <label class="cate-shop-box"><i class="iconfont icon-jinbichongzhi a_left n-is--icont-2"></i><span>我的佣金</span></label>
+                    <span class="t-jiantou fr n-sect-i"><i class="iconfont icon-jiantou1 tf-180 jian-top int-jt-box"></i></span>
+                </li>
+            </ul>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=my_commission&amp;u=40330">
+                <div class="int-cont-c padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">我的佣金</lable>
+
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=account_detail&amp;u=40330">
+                <div class="int-cont-c padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">佣金明细</lable>
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=account_raply&amp;u=40330">
+                <div class="int-cont-c padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">佣金提现</lable>
+                </div>
+            </a>
+
+
+            <ul class="int-nav-box-d my-new-m padding-all shop-b">
+                <li>
+                    <label class="cate-shop-box"><i class="iconfont icon-mingpian a_left n-is--icont-3"></i><span>我的名片</span></label>
+                    <span class="t-jiantou fr n-sect-i"><i class="iconfont icon-jiantou1 tf-180 jian-top int-jt-box"></i></span>
+                </li>
+            </ul>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=spread&amp;u=40330">
+                <div class="int-cont-d padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">推广二维码</lable>
+                </div>
+            </a>
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=store&amp;u=40330">
+                <div class="int-cont-d padding-all shop-b" style="display: none;">
+                    <lable class="two-shop-tit">店铺二维码</lable>
+                </div>
+            </a>
+
+            <a href="/v2/index.php?m=default&amp;c=sale&amp;a=ranking_list&amp;u=40330">
+                <ul class="int-nav-box-1 my-new-m padding-all shop-b">
+                    <li>
+                        <label class="cate-shop-box"><i class="iconfont icon-iconfontpaihangbang"></i><span>排行榜</span></label>
+                        <span class="t-jiantou f-r"><i class="iconfont icon-jiantou1 tf-180 jian-top"></i></span>
+                    </li>
+                </ul>
+            </a>
+        </section>
+    </div>
 </div>
 <footer class="aui-bar aui-bar-tab" id="footer">
     <div class="aui-bar-tab-item aui-active" tapmode>
@@ -249,7 +407,7 @@
 <script type="text/javascript" src="/javascript/lib/aui-slide.js"></script>
 <script type="text/javascript" src="/javascript/lib/aui-popup.js"></script>
 <script type="text/javascript" src="/javascript/main.js"></script>
-<!--<script type="text/javascript" src="/javascript/production-detail.js"></script>-->
+<script type="text/javascript" src="/javascript/store-manage.js"></script>
 {{#each jsList}}
 <script type="text/javascript" src='/javascript/{{this}}' class="jsList"></script>
 {{/each}}

@@ -49,3 +49,93 @@ section.aui-grid.product-list{
     color: #1cbb7f;
     font-size: 0.9rem;
 }
+/*通用*/
+.dis-box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+}
+.padding-all {
+    padding: 0.75rem;
+}
+.b-r {
+    border-radius: 0.3rem;
+}
+.box-flex {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    display: block;
+    width: 100%;
+}
+.fl{
+    float: left !important;
+}
+.huang-bg {
+    background: #fcf8e3;
+}
+.color-whie {
+    color: #fff;
+}
+.text-c {
+    text-align: center;
+}
+.col-3 {
+    color: #333;
+}
+.col-4 {
+    color: #444;
+}
+.col-5{
+    color: #555;
+}
+.col-6{
+    color: #666;
+}
+.col-7{
+    color: #777;
+}
+.col-8 {
+    color: #888;
+}
+.f-02 {
+    font-size: 12px;
+}
+.f-03 {
+    font-size: 13px;
+}
+.f-04 {
+    font-size: 14px;
+}
+.f-05 {
+    font-size: 15px;
+}
+.f-06 {
+    font-size: 16px;
+}
+.f-07 {
+    font-size: 17px;
+}
+.f-08 {
+    font-size: 18px;
+}
+.m-b1 {
+    margin-bottom: 0.6rem;
+}
+.m-l-05 {
+    margin-left:0.3rem;
+}
+.m-t05 {
+    margin-top: 1rem;
+}
+.m-t {
+    margin-top: 0.6rem;
+}
+.p-r {
+    position: relative;
+}
+.p-a {
+    position: absolute;
+}
