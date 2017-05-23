@@ -5,12 +5,12 @@ let template=
     '<div class="my-user-box com-header">'+
     '<div class="padding-all dis-box">'+
     '<div class="user-head-img-box">'+
-    '<img src="/images/idx_user.png">'+
+    '<img src={{ usericon}}>'+
     '</div>'+
     '<div class="box-flex">'+
     '<div class="g-s-i-title-a">'+
     '<h4 class="ellipsis-one user-admin-size">liunian</h4>'+
-    '<p class="user-reg-top">您的等级是 注册用户</p>'+
+    '<p class="user-reg-top">您的等级是 {{type}}</p>'+
     '</div>'+
     '</div> '+
     '<div class="user-right-maxbox">'+
@@ -24,7 +24,7 @@ let template=
     '</div>'+
     '<div class="my-nav-box my-shoucang-bg">'+
     '<div class="user-nav-box dis-box">'+
-    '<div class="box-flex">'+
+    '<div class="box-flex mine-my-collection">'+
     '<h4 class="ellipsis-one"> 0</h4>'+
     '<p class="t-remark3">收藏</p>'+
     '</div>'+
@@ -36,7 +36,7 @@ let template=
     '</div>'+
     '</div>'+
     '<section class="b-color-f my-nav-box m-top10">'+
-    '<div class="dis-box padding-all my-bottom">'+
+    '<div class="dis-box padding-all my-bottom my-all-order">'+
     '<h3 class="box-flex my-u-title-size"><i class="aui-iconfont aui-icon-calendar is-user-size"></i>我的订单</h3>'+
     '<div class="box-flex t-goods1 ">全部订单</div>'+
     '<span class="t-jiantou"><i class="aui-iconfont aui-icon-right"></i></span>'+
@@ -88,7 +88,27 @@ let template=
     '</div>'+
     '<section class="goods-shop-pic padding-all b-color-f">'+
     '<div class="swiper-container-horizontal product-one-list1">'+
-    '<div class="swiper-wrapper ">'+
+    '<div class="swiper-wrapper " style="overflow:auto;">'+
+    '<li class="swiper-slide swiper-slide-active">'+
+    '<div class="product-div">'+
+    '<span class="product-div-link" ></span>'+
+    '<img class="product-list-img" src="http://shop.ectouch.cn/v2/images/201509/thumb_img/13865_thumb_G_1441858537007.jpg">'+
+    '<div class="product-text">'+
+    '<h4>AIMIGAO爱米高2014春</h4>'+
+    '<p style="display:none"><span class="p-price t-first ">价格：¥438.00</span></p>'+
+    '</div>'+
+    '</div>'+
+    '</li>'+
+    '<li class="swiper-slide swiper-slide-active">'+
+    '<div class="product-div">'+
+    '<span class="product-div-link" ></span>'+
+    '<img class="product-list-img" src="http://shop.ectouch.cn/v2/images/201509/thumb_img/13865_thumb_G_1441858537007.jpg">'+
+    '<div class="product-text">'+
+    '<h4>AIMIGAO爱米高2014春</h4>'+
+    '<p style="display:none"><span class="p-price t-first ">价格：¥438.00</span></p>'+
+    '</div>'+
+    '</div>'+
+    '</li>'+
     '<li class="swiper-slide swiper-slide-active">'+
     '<div class="product-div">'+
     '<span class="product-div-link" ></span>'+
@@ -106,5 +126,13 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
-
+    $('.mine-my-collection').click(function () {
+        loadLib('/my-collection')
+    });
+    $('.my-all-order').click(function () {
+        loadLib('/my-order')
+    });
+    $('.user-head-img-box').click(function () {
+        loadLib('/person-info')
+    })
 }

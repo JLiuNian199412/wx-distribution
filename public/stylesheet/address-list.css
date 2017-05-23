@@ -1,0 +1,106 @@
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+#content{
+    padding: 0;
+}
+.goods, .flow-have-cart, .flow-checkout, .flow-consignee-list, .user-evaluation {
+    margin-bottom: 3.84rem;
+}
+
+.flow-checkout-adr {
+    background-size: 8rem auto;
+    font-size: 1.7rem;
+    position: relative;
+    background: #fff;
+    padding: 0;
+}
+.flow-set-adr {
+    border-bottom: 1px solid #F6F6F9;
+    font-size: 13px;
+}
+.select-three .ect-select label {
+    height: 1.32rem;
+    line-height: 1.32rem;
+    font-size: 16px;
+}
+.select-three .ect-select label.active i {
+    border: 1px solid #1cbb7f;
+    color: #fff;
+    text-align: center;
+    background: #1cbb7f url(../images/iconfont-gou.png) center center no-repeat;
+    background-size: 70%;
+}
+
+.select-three .ect-select i {
+    display: block;
+    width: 1.26rem;
+    height: 1.26rem;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+}
+.flow-set-adr .ect-select label span {
+    font-size: 15px;
+    color: #666;
+    margin-left: 0.36rem;
+    margin-top: 0.06rem;
+}
+.flow-consignee-list .flow-checkout-adr span {
+    position: static;
+    font-size: 15px;
+    color: #777;
+    margin-left: 0.6rem;
+}
+.flow-checkout-adr span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.flow-consignee-list .flow-checkout-adr span i {
+    font-size: 19px;
+    margin-right: 0.48rem;
+}
+.flow-consignee-list .flow-have-adr {
+    padding: 1.2rem 0.76rem;
+}
+.f-h-adr-title span{
+    margin-right: 0.48rem;
+}
+.t-remark{
+    color: #777;
+    font-size: 15px;
+    margin-top: 0.24rem;
+}
+.filter-btn {
+    max-width: 640px;
+    margin: 0 auto;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0.48rem;
+    z-index: 6;
+    background: #fafafc;
+    border-top: 1px solid #efefef;
+}
+.filter-btn a.box-flex:last-of-type {
+    margin-right: 0;
+    margin-left: 0;
+}
+.filter-btn a.box-flex {
+    margin: 0 0.48rem;
+}
+span.btn-submit {
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+    padding: .48rem 0;
+    border-radius: 4px;
+    width: 100%;
+    background: #1cbb7f;
+    border: 1px solid #1cbb7f;
+}

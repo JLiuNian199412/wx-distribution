@@ -1,0 +1,87 @@
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+#content{
+    padding: 0;
+}
+.ect-bg-colorf {
+    background: #fff;
+}
+.flow-consignee {
+    margin-top: 0.36rem;
+    border-top: none;
+}
+.s-user-top {
+    padding: 0 0.78rem;
+    position: relative;
+}
+.flow-consignee ul li {
+    padding: 0.78rem 0;
+    overflow: hidden;
+    height: auto;
+    clear: both;
+    position: relative;
+    border-bottom: 1px solid #f6f6f9;
+}
+.profile-left-name {
+    width: 7.2rem;
+}
+.my-u-title-size {
+    font-size: 17px;
+    color: #333;
+}
+.n-pro-name {
+    line-height: 1.56rem;
+    margin-left: 0.72rem;
+}
+.t-goods1 {
+    font-size: 15px;
+}
+.onelist-hidden {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.t-goods1 input {
+    font-size: 15px;
+    color: #666;
+    height: 1rem;
+    width: 100%;
+    border: none;
+    border: 0;
+    background: none;
+    text-align: right;
+}
+.input-text {
+    position: relative;
+    font-size: 17px;
+}
+.input-text b {
+    display: block;
+    float: left;
+    font-weight: 400;
+    font-size: 17px;
+    color: #333;
+}
+.input-text textarea {
+    width: 98%;
+    margin-top: 0.36rem;
+    height: 3.6rem;
+    border: 1px solid #f6f6f9;
+    font-size: 15px;
+    color: #777;
+}
+.ect-padding-tb {
+    padding-top: 0.36rem;
+    padding-bottom: 0.36rem;
+}
+.btn-submit {
+    font-size:17px;
+    color: #fff;
+    text-align: center;
+    padding: 0.484rem 0;
+    border-radius: 4px;
+    width: 100%;
+    background: #1cbb7f;
+    border: 1px solid #1cbb7f;
+}

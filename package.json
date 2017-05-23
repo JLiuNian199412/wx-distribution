@@ -7,16 +7,20 @@
   },
   "dependencies": {
     "body-parser": "~1.16.0",
+    "cookie": "latest",
     "cookie-parser": "~1.4.3",
+    "crypto": "latest",
     "debug": "~2.6.0",
+    "ejs": "latest",
     "express": "~4.14.1",
+    "express-session": "latest",
+    "hbs": "latest",
+    "http": "latest",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.2",
-    "ejs":"latest",
-    "hbs": "latest",
-    "mysql":"latest",
-    "express-session":"latest",
-    "cookie":"latest"
+    "mysql": "latest",
+    "nodemon": "^1.11.0",
+    "request": "latest",
+    "serve-favicon": "~2.3.2"
   }
 }

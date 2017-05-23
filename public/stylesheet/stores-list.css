@@ -1,0 +1,40 @@
+header.aui-bar.aui-bar-nav{
+    display: none;
+}
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+.bg-color-whie{
+    background: white;
+}
+#box {
+    width: 100%;
+}
+.n-b-b {
+    border-bottom: 1px solid #f6f6f9;
+}
+.n-bs-f {
+    background: #fff;
+}
+.is-user-jt {
+    padding-top: 0.48rem;
+}
+.icon-huise, .aui-icon-right {
+    color: #858585;
+    float: right;
+    font-size: 15px;
+}
+#content{
+    padding: 0;
+}
+.n-set-4-back {
+    font-size: 18px;
+    text-align: center;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    background: #1CBB7F;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 0.3rem;
+}

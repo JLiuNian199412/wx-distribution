@@ -1,0 +1,83 @@
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+#content{
+    padding: 0;
+}
+.user-order {
+    border-top: none;
+    padding: 0.36rem 0;
+}
+.ect-pro-list {
+    border-bottom: 1px #e3e3e3 solid;
+}
+.ect-pro-list ul li:last-child {
+    border-bottom: none;
+}
+.ect-pro-list ul li {
+    clear: both;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 0.36em;
+    border-bottom: 1px #e3e3e3 dotted;
+}
+.user-order li {
+    position: relative;
+}
+.ect-pro-list li {
+    background: #fff;
+}
+.ect-pro-list ul li  div{
+    display: inline-block;
+    float: left;
+}
+
+.ect-pro-list ul li img {
+    width: 4.6rem;
+    height:4.2rem;
+}
+.pull-left {
+    float: left;
+}
+.ect-pro-list ul li dl {
+    margin-left: 4.84rem;
+}
+.user-order ul li dl dt h4.title {
+    height: auto;
+}
+h4.title {
+    font-size: 16px;
+    line-height: 0.8rem;
+    display: block;
+    height: 1.44rem;
+    overflow: hidden;
+}
+.user-order ul li dl dd {
+    margin-top: 0.12rem;
+}
+.ect-pro-list ul li dl dd {
+    margin-top: 0.24rem;
+    font-size: 9px;
+    overflow: hidden;
+}
+.user-order span {
+    color: #222;
+}
+.ect-color {
+    color: #1cbb7f !important;
+}
+.user-order li i.fa {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.72rem;
+    right: 0.36rem;
+}
+.fa.pull-right {
+    margin-left: 0.18rem;
+    float: right!important;
+}
+.user-order li i.fa:before {
+    font-size: 24px;
+    color: #bbb;
+}

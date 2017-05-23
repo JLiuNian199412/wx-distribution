@@ -1,0 +1,80 @@
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}#content{
+    padding: 0;
+ }
+ header .aui-title{
+     color: black;
+ }
+.product-list-small ul li{
+    background: #fff;
+}
+.product-list-small .product-div {
+    padding: 0.4rem;
+}
+.product-list-small .product-div img {
+    border: 1px solid #F6F6F9;
+}
+.product-list-small .product-list-img {
+    width: 5.9rem;
+    height: auto;
+    float: left;
+}
+.product-div img {
+    width: 100%;
+    display: block;
+}
+.product-text h4 {
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    color: #444;
+}
+.product-list-medium h4, .product-list-small h4 {
+    font-size: 15px;
+    height: 2.28rem;
+    line-height: 1.14rem;
+    overflow: hidden;
+}
+.n-money-con {
+    padding: 0.12rem 0;
+}
+.product-list-small .p-price {
+    font-size: 20px;
+}
+
+.p-price {
+    clear: both;
+    overflow: hidden;
+}
+.t-first {
+    color: #1cbb7f;
+}
+.ect-margin-lr {
+    margin-left: 0.36em;
+    margin-right: 0.36em;
+}
+small {
+    font-size: smaller;
+}
+del {
+    color: #aaa;
+    font-size: 13px;
+}
+.s-but {
+    border: 1px solid #1cbb7f;
+    border-radius: 0.3rem;
+    font-size: 13px;
+    margin-right: 0.3rem;
+    text-align: center;
+    color: #1cbb7f;
+    padding: 0.12rem 0;
+    width: 4.2rem;
+}
+.n-margin-del, .n-del {
+    width: 1.44rem;
+}
+.n-del i {
+    color: #777;
+    font-size: 17px;
+}

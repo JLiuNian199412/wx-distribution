@@ -92,25 +92,55 @@ function loadCss(url,index,result,option){
 }
 function loadLib(url){
     let option={};
+    let footerbar=$('footer.aui-bar .aui-bar-tab-item');
     if(url=='/home'){
         option.left=ui.menu;
         option.title=ui.search;
         option.right=ui.comment;
-
+        footerbar.removeClass('aui-active');
+        footerbar.eq(0).addClass('aui-active');
     }else if(url=='/shop'){
         option.all=ui.search;
+        footerbar.removeClass('aui-active');
+        footerbar.eq(1).addClass('aui-active');
+    }else if(url=='/store'){
+        footerbar.removeClass('aui-active');
+        footerbar.eq(2).addClass('aui-active');
     }else if(url=='/shop-cart'){
         option.left=ui.left;
         option.title='购物车';
+        footerbar.removeClass('aui-active');
+        footerbar.eq(3).addClass('aui-active');
+    }else if(url=='/mine'){
+        footerbar.removeClass('aui-active');
+        footerbar.eq(4).addClass('aui-active');
     }else if(url=='/search'){
         option.all='';
     }else if(url=='/shop-production'){
         option.left=ui.left;
         option.title=ui.search;
         option.right=ui.home;
+    }else if(url=='/my-collection'){
+        option.left=ui.left;
+        option.title='我的收藏';
+    }
+    else if(url=='/my-order'||url=='/address-detail'||url=='/make-order'){
+        option.left=ui.left;
+        option.title=' ';
+    }
+    else if(url=='/address-list'){
+        option.left=ui.left;
+        option.title='收货人信息';
+    }
+    else if(url=='/person-info'){
+        option.left=ui.left;
+        option.title='个人资料';
+    }else if(url=='/order-detail'){
+        option.left=ui.left;
+        option.title='订单详情';
     }
     $.get(url,function(result){
-        option.result=result.val;
+        option.result=result.val[0];
         option.type=result.type;
         $('.cssList').addClass('oldCss');
         $('.jsList').addClass('oldJs');
@@ -166,6 +196,7 @@ function backUrl(){
 }
 function showTemplate(option){
     let template = Handlebars.compile(localStorage.getItem('template'));
+    console.log(option)
     $('#content').html(template(option.result));
     if(option.all){
         $('header.aui-bar-nav').html(option.all)

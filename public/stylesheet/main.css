@@ -71,10 +71,16 @@ section.aui-grid.product-list{
     width: 100%;
 }
 .fl{
-    float: left !important;
+    float: left ;
 }
 .huang-bg {
     background: #fcf8e3;
+}
+.fr {
+    float: right;
+}
+.f-r {
+    float: right;
 }
 .color-whie {
     color: #fff;
@@ -99,6 +105,17 @@ section.aui-grid.product-list{
 }
 .col-8 {
     color: #888;
+}
+.ect-colory {
+    color: #5bc0de !important;
+}
+.btn-info,.n-set-4-back,.n-set-4-submit{
+    color: #fff!important;
+    background-color: #5bc0de !important;
+    border-color: #46b8da!important;
+}
+.f-01{
+    font-size: 11px;
 }
 .f-02 {
     font-size: 12px;
@@ -127,15 +144,40 @@ section.aui-grid.product-list{
 .m-l-05 {
     margin-left:0.3rem;
 }
-.m-t05 {
-    margin-top: 1rem;
-}
 .m-t {
     margin-top: 0.6rem;
 }
-.p-r {
-    position: relative;
+.m-t05 {
+    margin-top: 1rem;
+}
+.m-t006 {
+    margin-top:0.36rem;
+}
+.m-top08 {
+    margin-top: 0.48rem;
+}
+.n-b-b {
+    border-bottom: 1px solid #f6f6f9;
+}
+.n-bs-f {
+    background: #fff;
+}
+.n-lv-bg{
+    background: #1CBB7F;
+}
+.of-hidden {
+    overflow: hidden;
 }
 .p-a {
     position: absolute;
 }
+.p-r {
+    position: relative;
+}
+.p-t1 {
+    padding-top: 0.6rem;
+}
+.p-t05 {
+    padding-top: 0.3rem;
+}
+

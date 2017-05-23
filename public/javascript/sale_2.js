@@ -110,7 +110,15 @@ function CurrentJsLoad(){
     $('.n-set-4-submit').click(function () {
         $.each($('.elecheck:checked'),function (_,v) {
             console.log($(v).next().text())
-        })
-        loadLib('/sale_3')
+        });
+        if(URL.param('storeid')){
+            loadLib('/store-manage')
+        }else{
+            loadLib('/sale_3')
+        }
     })
+    if(URL.param('storeid')){
+        $('.open-header-bg').hide();
+        $('.n-ti-bg').hide();
+    }
 }

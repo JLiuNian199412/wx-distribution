@@ -4,7 +4,6 @@ header.aui-bar.aui-bar-nav{
 footer.aui-bar.aui-bar-tab{
     display: none;
 }
-
 .share-div {
     position: fixed;
     text-align: center;
@@ -105,7 +104,6 @@ footer.aui-bar.aui-bar-tab{
     text-align: center;
 }
 .ect-index-menu ul li span h4 {
-     height: 0.7rem;
     font-size: 10px;
     color: #999;
     line-height: 0.9rem;

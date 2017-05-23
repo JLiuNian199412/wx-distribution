@@ -1,11 +1,22 @@
 var query=require('../conf/db.js');
-function login(callback){
-    query('select * from user',function(qerr,vals,fields){
+function userInfo(user,callback){
+    query('select * from user where openid=?',[user.openid],function(qerr,vals,fields){
         if(qerr){
             console.log(qerr)
         }
         callback(vals)
     });
 }
+exports.userInfo=userInfo;
 
-exports.login=login;
+function insert(user,callback){
+    query('INSERT INTO user (name,openid,type,usericon) VALUES (?,?,"会员",?)',[user.nickname,user.openid,user.headimgurl],function(qerr,vals,fields){
+        if(qerr){
+            console.log(qerr)
+        }
+        callback(vals)
+    })
+}
+
+
+exports.insert=insert;

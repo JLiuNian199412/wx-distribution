@@ -1,0 +1,74 @@
+html,body,#content {
+    height: 100%;
+    width: 100%;
+}
+header.aui-bar.aui-bar-nav{
+    display: none;
+}
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+#content{
+    padding: 0;
+}
+#box {
+    width: 100%;
+}
+.shop-info-nav {
+    background: #18a470;
+}
+.shop-info-nav span {
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    display: block;
+}
+.n-lv-bg {
+    background: #1CBB7F;
+}
+.shop-money p {
+    padding-top: 1.2rem;
+    font-size: 13px;
+}
+.shop-money p, .shop-money h4 {
+    color: #fff;
+    text-align: center;
+}
+.shop-money h4 {
+    font-size: 50px;
+    padding-bottom: 1.2rem;
+}
+.shop-nav-two p, .shop-nav-two h4 {
+    text-align: center;
+}
+.shop-nav-two p {
+    color: #888;
+    font-size: 13px;
+}
+.shop-nav-two h4 {
+    color: #1CBB7F;
+    font-size: 20px;
+}
+.n-t-a-center {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1.2rem;
+}
+.n-set-4-submit {
+    font-size: 18px;
+    text-align: center;
+    height: 2.88rem;
+    line-height: 2.88rem;
+    background: #1CBB7F;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius:0.3rem;
+}
+.n-wdfd_content5 {
+    color: #fff;
+}
+.n-shop-but {
+    background: #fff;
+    border: 1px solid #1CBB7F;
+}

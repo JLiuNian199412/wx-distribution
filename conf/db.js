@@ -6,12 +6,12 @@ var pool = mysql.createPool({
     database: 'wx-distribution',
     port: '3306'
 });
-var query=function(sql,callback){
+var query=function(sql,values,callback){
     pool.getConnection(function(err,client){
         if(err){
             callback(err,null,null);
         }else{
-            client.query(sql,function(qerr,val,fields){
+            client.query(sql,values,function(qerr,val,fields){
                 //释放连接
                 client.release();
                 //事件驱动回调

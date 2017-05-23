@@ -1,0 +1,96 @@
+footer.aui-bar.aui-bar-tab{
+    display: none;
+}
+#content{
+    padding: 0;
+}
+.ect-bg-colorf {
+    background: #fff;
+}
+.flow-consignee {
+    margin-top: 0.36rem;
+}
+.flow-consignee {
+    border-top: none;
+}
+.s-user-top {
+    padding: 0 0.78rem;
+    position: relative;
+}
+.flow-consignee ul li {
+    padding: 0.78rem 0;
+    overflow: hidden;
+    height: auto;
+    clear: both;
+    position: relative;
+    border-bottom: 1px solid #f6f6f9;
+}
+.profile-left-name {
+    width: 7.2rem;
+}
+
+.my-u-title-size {
+    font-size: 17px;
+    color: #333;
+}
+.t-goods1 {
+    font-size: 15px;
+}
+.onelist-hidden {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.t-goods1 input {
+    font-size: 15px;
+    color: #666;
+    width: 100%;
+    height: auto;
+    border: none;
+    border: 0;
+    background: none;
+    text-align: right;
+}
+.b-color-f {
+    background: #fff;
+}
+.m-top10 {
+    margin-top: 0.6rem;
+}
+.s-user-top {
+    padding: 0 0.78rem;
+    position: relative;
+}
+.s-user-top .dis-box{
+    padding: 0.78rem 0;
+    border-bottom: 1px solid #F6F6F9;
+}
+span.t-jiantou {
+    position: relative;
+    font-size: 15px;
+    padding-right: 0.28rem;
+    margin-top: 0.06rem;
+    color: #555;
+}
+span.t-jiantou i.icon-jiantou {
+    position: absolute;
+}
+.jian-top {
+    margin-top: 0.18rem;
+    color: #777;
+}
+.ect-padding-tb {
+    padding-top: 0.36rem;
+    padding-bottom: 0.36rem;
+}
+.btn-submit {
+    background: #1cbb7f;
+    border: 1px solid #1cbb7f;
+    font-size: 17px;
+    color: #fff;
+    height: 2.25rem;
+    text-align: center;
+    padding: 0.48rem 0;
+    border-radius: 4px;
+    width: 100%;
+}
