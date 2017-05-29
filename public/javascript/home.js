@@ -81,6 +81,27 @@ if($('#aui-slide')){
     CurrentJsLoad();
 }
 function CurrentJsLoad(){
+    $('.aui-dialog').remove();
+    var dialog = new auiDialog({});
+    dialog.alert({
+        title:"提示",
+        msg:"服务器开小差了",
+        buttons:['确定']
+    });
+    // function openDialog(type){
+    //     switch (type) {
+    //         case "text":
+    //             dialog.alert({
+    //                 title: "弹出提示",
+    //                 msg: '这里是内容',
+    //                 buttons: ['取消', '确定']
+    //             }, function (ret) {
+    //                 console.log(ret)
+    //             })
+    //             break;
+    //
+    //     }
+    // }
         $('.aui-pull-right.aui-btn').click(function(){
             loadLib('/users/login');
         });
@@ -98,5 +119,14 @@ function CurrentJsLoad(){
     $('#search-input').click(function(){
         sessionStorage.setItem('searchBackUrl','/home');
         loadLib('/search')
-    })
+    });
+    $('.home-all').click(function(){
+        loadLib('/shop-production')
+    });
+    $('.home-hot-search').click(function(){
+        loadLib('/search')
+    });
+    $('.home-my-orderl').click(function(){
+        loadLib('/my-order')
+    });
 }

@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret:'12345',
-    cookie:{maxAge:360000},
+    cookie:{maxAge:3600000},
     resave:false,
     saveUninitialized:true
 }))

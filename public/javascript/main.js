@@ -90,7 +90,7 @@ function loadCss(url,index,result,option){
         });
     }
 }
-function loadLib(url){
+function loadLib(url,param){
     let option={};
     let footerbar=$('footer.aui-bar .aui-bar-tab-item');
     if(url=='/home'){
@@ -139,7 +139,7 @@ function loadLib(url){
         option.left=ui.left;
         option.title='订单详情';
     }
-    $.get(url,function(result){
+    $.get(url,param,function(result){
         option.result=result.val[0];
         option.type=result.type;
         $('.cssList').addClass('oldCss');

@@ -106,13 +106,13 @@ section.aui-grid.product-list{
 .col-8 {
     color: #888;
 }
-.ect-colory {
-    color: #5bc0de !important;
-}
-.btn-info,.n-set-4-back,.n-set-4-submit{
+.ect-bg{
     color: #fff!important;
     background-color: #5bc0de !important;
-    border-color: #46b8da!important;
+}
+.ect-bg-colory{
+    color: #fff!important;
+    background-color: #5bc0de !important;
 }
 .f-01{
     font-size: 11px;
@@ -180,4 +180,6 @@ section.aui-grid.product-list{
 .p-t05 {
     padding-top: 0.3rem;
 }
-
+.aui-mask{
+    z-index: 12;
+}

@@ -1,5 +1,4 @@
-$(function(){
-    let template=
+let template=
         '<div class="con">'+
         '<div class="o-t-good">'+
         '<div class="flow-price">'+
@@ -64,5 +63,9 @@ $(function(){
         '</div>'+
         '</div>'+
         '</div>';
-    localStorage.setItem('template',template)
-})
+localStorage.setItem('template',template)
+function CurrentJsLoad(){
+    $('.btn-info').click(function () {
+        loadLib('/make-order')
+    })
+}

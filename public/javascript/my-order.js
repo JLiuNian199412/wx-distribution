@@ -2,7 +2,7 @@ let template=
     '<div class="ect-pro-list user-order" style="border-bottom:none;">'+
     '<ul id="J_ItemList">'+
     '<li>'+
-    '<div>'+
+    '<div class="order-list">'+
     '<img src="http://shop.ectouch.cn/v2/images/201509/thumb_img/16184_thumb_G_1441858539274.jpg" class="pull-left">'+
     '<dl>'+
     '<dt>'+
@@ -19,6 +19,7 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
-
-
+    $('.order-list').click(function () {
+        loadLib('/order-detail')
+    })
 }

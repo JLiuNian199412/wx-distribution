@@ -138,6 +138,7 @@ router.get('/search', function (req, res, next) {
 });
 router.get('/shop-production', function (req, res, next) {
     let option = {};
+    console.log(req.query)
     option.cssList = ['shop-production.css'];
     option.jsList = ['shop-production.js'];
     option.type = 'shop-production';

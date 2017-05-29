@@ -77,7 +77,7 @@ b, strong {
     border-radius: 0.15rem;
 }
 .ect-bg-colory {
-    background: #1cbb7f !important;
+    background: #1cbb7f;
 }
 .flow-checkout section i, .checkout-add i {
     font-style: normal;
@@ -148,7 +148,7 @@ input[type=text], textarea {
     padding-bottom: 0;
 }
 .ect-margin-bottom0 {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 .checkout-pro-list>p {
     height: 1.62rem;
@@ -192,8 +192,8 @@ input[type=text], textarea {
     width: 100%;
 }
 .ect-bg {
-    background: #1cbb7f !important;
-    color: #fff !important;
+    background: #1cbb7f;
+    color: #fff;
     height: auto;
     overflow: hidden;
 }

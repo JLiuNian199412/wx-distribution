@@ -41,7 +41,7 @@ let template=
     '</ul>'+
     '</div>'+
     '</section>'+
-    '<div class="two-btn ect-padding-tb ect-padding-lr ect-margin-tb text-center">'+
+    '<div class="two-btn ect-padding-tb ect-padding-lr ect-margin-tb text-center" style="padding-left: 0.36rem;padding-right: 0.36rem">'+
     '<span class="btn btn-info ect-colorf ect-bg">取消订单</span>'+
     '</div>'+
     '<section class="order-detail-info ect-margin-tb">'+
@@ -49,14 +49,6 @@ let template=
     '<li>收货人姓名：<b>1</b></li>'+
     '<li>手机：<b>15215211512</b></li>'+
     '<li>详细地址：<b>14</b></li>'+
-    '<li class="text-right">'+
-    '<p class="ect-margin-tb">商品总价：<b class="ect-colory">'+
-    '￥798.00元</b>'+
-    '</p>'+
-    '<p class="ect-margin-tb">'+
-    '</p>'+
-    '<p class="ect-margin-tb">应付款金额：<b class="ect-colory">￥798.00元</b><br></p>'+
-    '</li>'+
     '</ul>'+
     '</section>'+
     '<section class="order-detail-info ect-margin-tb ect-margin-bottom0 user-bottom0">'+

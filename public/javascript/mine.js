@@ -5,7 +5,7 @@ let template=
     '<div class="my-user-box com-header">'+
     '<div class="padding-all dis-box">'+
     '<div class="user-head-img-box">'+
-    '<img src={{ usericon}}>'+
+    '<img src={{ userIcon}}>'+
     '</div>'+
     '<div class="box-flex">'+
     '<div class="g-s-i-title-a">'+

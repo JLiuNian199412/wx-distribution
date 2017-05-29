@@ -7,7 +7,7 @@ let template=
     '</li>'+
     '<li class="dis-box">'+
     '<h3 class="profile-left-name text-all-span my-u-title-size">电子邮件：</h3>'+
-    '<div class="box-flex t-goods1 onelist-hidden "> <input name="email" type="text" placeholder="请输入电子邮箱" value="1581547849@qq.com"></div>'+
+    '<div class="box-flex t-goods1 onelist-hidden "> <input name="email" type="text" placeholder="请输入电子邮箱" value="1581547849"></div>'+
     '</li>'+
     '</ul>'+
     '</section>'+
@@ -24,6 +24,12 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
+    var dialog = new auiDialog({});
+    dialog.alert({
+        title:"提示",
+        msg:"未输入正确的邮箱格式",
+        buttons:['确定']
+    });
     $('.btn-submit').click(function () {
         loadLib('/mine')
     });
