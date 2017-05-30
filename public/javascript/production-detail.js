@@ -22,7 +22,7 @@ let template=
     '<ul class="swiper-wrapper">'+
     '<li class="swiper-slide tb-lr-center swiper-slide-active">'+
     '<div class="of-hidden" id="img-photo-box" style="width:375px;height: 375px;">'+
-    '<img id="img-photo" src="http://gi1.mlist.alicdn.com/bao/uploaded/i1/783329018/TB2EsDoXVXXXXctXXXXXXXXXXXX_!!783329018.jpg" >'+
+    '<img id="img-photo" src="/images/{{picUrl}}" >'+
     '</div>'+
     '</li>'+
     '</ul>'+
@@ -30,7 +30,7 @@ let template=
     '<div class="goods-info">'+
     '<section class="goods-title">'+
     '<div class="dis-box">'+
-    '<h3 class="box-flex">skechers斯凯奇 gowalk时尚女单鞋 超轻舒适豆豆鞋休闲女鞋13514</h3>'+
+    '<h3 class="box-flex">{{name}}</h3>'+
     '<span class="heart" id="ECS_COLLECT">'+
     '<i class="ts-2 aui-iconfont aui-icon-like"></i>'+
     '<em class="ts-2">收藏</em>'+
@@ -39,13 +39,13 @@ let template=
     '</section>'+
     '<section class="goods-price">'+
     '<p class="p-price">'+
-    '<span>￥499.00元</span>'+
+    '<span>￥{{price}}</span>'+
     '</p>'+
-    '<p class="p-market">市场价<del>￥599.00元</del>'+
+    '<p class="p-market">市场价<del>￥{{marketPrice}}元</del>'+
     '</p>'+
     '<p class=" dis-box">'+
-    '<span class="box-flex text-left">销量：0</span>'+
-    '<span class="box-flex text-right">库存: 128</span>'+
+    '<span class="box-flex text-left">销量：{{sales}}</span>'+
+    '<span class="box-flex text-right">库存: {{qty}}</span>'+
     '</p>'+
     '</section>'+
     '<section class="goods-service">'+
@@ -121,8 +121,8 @@ let template=
     '<sup class="b-color" id="total_number">0</sup>'+
     '<em>购物车</em>'+
     '</span>'+
-    '<span  class="btn-cart box-flex">加入购物车</span>'+
-    '<span  class="btn-submit box-flex">立即购买</span>'+
+    '<span  data-id="{{id}}" class="btn-cart box-flex">加入购物车</span>'+
+    '<span  data-id="{{id}}" class="btn-submit box-flex">立即购买</span>'+
     '</div>'+
     '<div class="aui-popup aui-popup-bottom-left" id="production-buy" style="display: none">'+
     '<div class="show-goods-attr"></div>'+
@@ -152,8 +152,8 @@ let template=
     '</div>'+
     '</section>'+
     '<section class="ect-button-more dis-box">'+
-    '<span  class="btn-cart box-flex">加入购物车</span>'+
-    '<span  class="btn-submit box-flex">立即购买</span>'+
+    '<span  data-id="{{id}}" class="btn-cart box-flex">加入购物车</span>'+
+    '<span  data-id="{{id}}" class="btn-submit box-flex">立即购买</span>'+
     '</section>'+
     '</div>'+
     '</div>'+

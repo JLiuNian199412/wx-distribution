@@ -3,6 +3,7 @@ const request = require('request');
 const http = require('http');
 const crypto=require('crypto');
 const userDao = require('../dao/userDao');
+const shopDao = require('../dao/shopDao');
 const router = express.Router();
 const token = 'liunian_wx';
 const appId = 'wxdc2bf0ab4a42e61f';
@@ -53,6 +54,7 @@ router.get('/', function (req, res, next) {
                 console.log('获取到openId: ' + req.session.openId);
                 userDao.userInfo(body,function (val) {
                     if(val&&val!=''&&val!=undefined){
+                        req.session.userId=val[0].id;
                         option.val = val;
                         res.render('home', option);
                     }else{
@@ -63,7 +65,9 @@ router.get('/', function (req, res, next) {
                             userDao.insert(body2,function (val) {
                                 if(val){
                                     userDao.userInfo(body2,function (val2) {
+                                        req.session.userId = val2.id;
                                         option.val = val2;
+                                        option.val.userId = req.session.userId;
                                         res.render('home', option);
                                     })
                                 }else {
@@ -81,13 +85,14 @@ router.get('/', function (req, res, next) {
 
 router.get('/home', function (req, res, next) {
     let user={};
-    user.openid=req.session.openId;
+    user.id=req.session.userId;
     let option = {};
     option.cssList = ['home.css'];
     option.jsList = ['home.js'];
     option.type = 'home';
-    userDao.userInfo(user,function (val) {
+    userDao.getUserInfo(user,function (val) {
         option.val = val;
+        option.userId = user.id;
         res.json(option);
     })
 });
@@ -138,20 +143,141 @@ router.get('/search', function (req, res, next) {
 });
 router.get('/shop-production', function (req, res, next) {
     let option = {};
-    console.log(req.query)
     option.cssList = ['shop-production.css'];
     option.jsList = ['shop-production.js'];
     option.type = 'shop-production';
-    option.val = '';
-    res.json(option);
+    let goods={};
+    goods.index=1;
+    goods.account=6;
+    if(req.query.prdType&&req.query.detailType){
+        goods.type=req.query.prdType;
+        goods.detailType=req.query.detailType;
+        goods.sex=req.query.sex;
+        if(goods.sex!=0){
+            shopDao.goodTypeInfo2(goods,function (val) {
+                if(val!=''&&val!=undefined){
+                    function insertImg(callback) {
+                        let i=0;
+                        val.forEach(function (v,_) {
+                            shopDao.goodImg(v.picId,function (img) {
+                                i++;
+                                if(img&&img!=''){
+                                    val[_].picUrl=img[0].url;
+                                }
+                                if(i==val.length){
+                                    callback(val);
+                                }
+                            })
+                        });
+                    }
+                    insertImg(function(value){
+                        option.val={};
+                        option.val.List = value;
+                        res.json(option);
+                    })
+                }else {
+                    option.val={};
+                    res.json(option);
+                }
+            })
+        }else{
+            shopDao.goodTypeInfo(goods,function (val) {
+                if(val!=''&&val!=undefined){
+                    function insertImg(callback) {
+                        let i=0;
+                        val.forEach(function (v,_) {
+                            shopDao.goodImg(v.picId,function (img) {
+                                i++;
+                                if(img&&img!=''){
+                                    val[_].picUrl=img[0].url;
+                                }
+                                if(i==val.length){
+                                    callback(val);
+                                }
+                            })
+                        });
+                    }
+                    insertImg(function(value){
+                        option.val={};
+                        option.val.List = value;
+                        res.json(option);
+                    })
+                }else {
+                    option.val={};
+                    res.json(option);
+                }
+            })
+        }
+    }else{
+        goods.sortBy='id';
+        goods.sortDirection='ASC';
+        if(req.query.sortBy&&req.query.sortDirection){
+            goods.sortBy=req.query.sortBy;
+            goods.sortDirection=req.query.sortDirection;
+        }
+        shopDao.goodsInfo(goods,function (val) {
+            if(val!=''&&val!=undefined){
+                function insertImg(callback) {
+                    let i=0;
+                    val.forEach(function (v,_) {
+                        i++;
+                        shopDao.goodImg(v.picId,function (img) {
+                            if(img&&img!=''){
+                                val[_].picUrl=img[0].url;
+                            }
+                            if(i==val.length){
+                                callback(val);
+                            }
+                        })
+                    });
+                }
+                insertImg(function(value){
+                    option.val={};
+                    option.val.List = value;
+                    res.json(option);
+                })
+            }else {
+                option.val={};
+                res.json(option);
+            }
+        })
+    }
+
+
 });
 router.get('/production-detail', function (req, res, next) {
     let option = {};
     option.cssList = ['production-detail.css'];
     option.jsList = ['production-detail.js'];
     option.type = 'production-detail';
-    option.val = '';
-    res.json(option);
+    if(req.query.goodsId&&req.query.goodsId!=''&&req.query.goodsId!=undefined){
+        shopDao.goodInfo(req.query.goodsId,function (val) {
+            function insertImg(callback) {
+                let i=0;
+                val.forEach(function (v,_) {
+                    i++;
+                    shopDao.goodImg(v.picId,function (img) {
+                        if(img&&img!=''){
+                            val[_].picUrl=img[0].url;
+                            val[_].marketPrice=val[_].price*1.2+'0';
+                        }
+                        if(i==val.length){
+                            callback(val);
+                        }
+                    })
+                });
+            }
+            insertImg(function(value){
+                option.val={};
+                option.val = value[0];
+                res.json(option);
+            })
+        })
+    }else{
+        option.val = 'err';
+        res.json(option);
+    }
+
 });
 router.get('/sale_1', function (req, res, next) {
     let option = {};
@@ -282,3 +408,56 @@ router.get('/order-detail', function (req, res, next) {
     res.json(option);
 });
 module.exports = router;
+
+router.get('/people-like', function (req, res, next) {
+    let option = {};
+    let goods = {};
+    option.id = req.session.userId;
+    goods.sortBy='id';
+    goods.sortDirection='ASC';
+    goods.index=1;
+    goods.account=4;
+    shopDao.goodsLike(option,function (val) {
+        if(val==''||val==undefined){
+            shopDao.goodsInfo(goods,function (val2) {
+                function insertImg(callback) {
+                    let i=0;
+                    val2.forEach(function (v,_) {
+                        shopDao.goodImg(v.picId,function (img) {
+                            i++;
+                            if(img&&img!=''){
+                                val2[_].picUrl=img[0].url;
+                            }
+                            if(i==val2.length){
+                                callback(val2);
+                            }
+                        })
+                    });
+                }
+                insertImg(function(value){
+                    res.json(value);
+                })
+            })
+        }else{
+            function insertImg(callback) {
+                let i=0;
+                val.forEach(function (v,_) {
+                    shopDao.goodImg(v.picId,function (img) {
+                        i++;
+                        if(img&&img!=''){
+                            val[_].picUrl=img[0].url;
+                        }
+                        if(i==val.length){
+                            callback(val);
+                        }
+                    })
+                });
+            }
+            insertImg(function(value){
+                res.json(value);
+            })
+        }
+    });
+});
+module.exports = router;
+

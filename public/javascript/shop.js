@@ -1,13 +1,14 @@
 let template='<div class="menu-left" id="sidebar">'+
     '<ul>'+
-    '<li class="active">鞋/箱包</li>'+
+    '<li class="active">鞋</li>'+
+    '<li>箱包</li>'+
     '<li>珠宝首饰</li>'+
     '<li>手表眼镜</li>'+
     '<li>数码</li>'+
     '</ul>'+
     '</div>'+
     '<section class="menu-right" >'+
-    '<h5>鞋/箱包</h5>'+
+    '<h5>鞋</h5>'+
     '<ul>'+
     '<li class="aui-col-xs-4">'+
     '<img src="/images/16904_thumb_G_1441858512366.jpg"><span>时尚女鞋</span></li>'+
@@ -23,6 +24,11 @@ let template='<div class="menu-left" id="sidebar">'+
     '<img src="/images/17994_thumb_G_1441858645949.jpg"><span>帆布鞋</span></li>'+
     '<li class="aui-col-xs-4">'+
     '<img src="/images/16812_thumb_G_1441858660313.jpg"><span>板鞋</span></li>'+
+    '</ul>'+
+    '</section>'+
+    '<section class="menu-right" style="display: none">'+
+    '<h5>箱包</h5>'+
+    '<ul>'+
     '<li class="aui-col-xs-4">'+
     '<img src="/images/13635_thumb_G_1441858703409.jpg"><span>女士钱包</span></li>'+
     '<li class="aui-col-xs-4">'+
@@ -103,6 +109,17 @@ function CurrentJsLoad(){
         $this.addClass('active');
         $(".menu-right").css('display','none').eq($this.index()).css('display','block').scrollTop(0);
     });
+    let shopType=sessionStorage.getItem('shopType');
+    if(shopType&&shopType!=''){
+        $.each(sidebarLi,function (_,v) {
+            let $this=$(this);
+            if($this.text()==shopType){
+                sidebarLi.removeClass('active');
+                $this.addClass('active');
+                $(".menu-right").css('display','none').eq($this.index()).css('display','block').scrollTop(0);
+            }
+        })
+    }
     $('#search-input').click(function(){
         sessionStorage.setItem('searchBackUrl','/shop');
         loadLib('/search')
@@ -111,12 +128,20 @@ function CurrentJsLoad(){
         let type,text;
         type=$(this).parent().prev().text();
         text=$(this).find('span').text();
-        if( text.indexOf('男')>0){
-            loadLib('/shop-production',{'prdType':type,"sex":'1'})
-        }else if( text.indexOf('女')>0){
-            loadLib('/shop-production',{'prdType':type,"sex":'2'})
+        sessionStorage.setItem('shopType',type);
+        sessionStorage.setItem('shopDetailType',text);
+        if(text.indexOf('男')>=0){
+            console.log(1)
+            sessionStorage.setItem('shopSex','1');
+            loadLib('/shop-production',{'prdType':type,'detailType':text,"sex":'1'})
+        }else if(text.indexOf('女')>=0){
+            console.log(2)
+            sessionStorage.setItem('shopSex','2');
+            loadLib('/shop-production',{'prdType':type,'detailType':text,"sex":'2'})
         }else{
-            loadLib('/shop-production',{'prdType':type})
+            console.log(text)
+            sessionStorage.setItem('shopSex','0');
+            loadLib('/shop-production',{'prdType':type,'detailType':text,"sex":'0'})
         }
 
     })

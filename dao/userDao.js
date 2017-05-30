@@ -17,6 +17,14 @@ function insert(user,callback){
         callback(vals)
     })
 }
-
-
 exports.insert=insert;
+
+function getUserInfo(user,callback){
+    query('select * from user where id=?',[user.id],function(qerr,vals,fields){
+        if(qerr){
+            console.log(qerr)
+        }
+        callback(vals)
+    });
+}
+exports.getUserInfo=getUserInfo;

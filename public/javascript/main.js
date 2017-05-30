@@ -70,7 +70,7 @@ function loadCss(url,index,result,option){
         styleOnload(styleNode,function(){
             let str='';
             let oldCSS=$('.oldCss');
-            if(sessionStorage.getItem('isBack')!='true'||!sessionStorage.getItem('backUrl')){
+            if(sessionStorage.getItem('isBack')!='true'){
                 let backUrl=sessionStorage.getItem('backUrl');
                 if(backUrl==''||backUrl==null){
                     sessionStorage.setItem('backUrl','/'+oldCSS.attr('href').split('/')[2].split('.')[0]);
@@ -140,17 +140,29 @@ function loadLib(url,param){
         option.title='订单详情';
     }
     $.get(url,param,function(result){
-        option.result=result.val[0];
-        option.type=result.type;
-        $('.cssList').addClass('oldCss');
-        $('.jsList').addClass('oldJs');
-        $.each(result.cssList,function(_,v){
-            loadCss('/stylesheet/'+v,_,result,option);
-        });
+        var dialog = new auiDialog({});
+        if(result.userId){
+            sessionStorage.setItem('userId',result.userId)
+        }
+        if(option.val=='err'){
+            dialog.alert({
+                title:"提示",
+                msg:"服务器开小差了",
+                buttons:['确定']
+            });
+        }else{
+            option.result=result.val;
+            option.type=result.type;
+            $('.cssList').addClass('oldCss');
+            $('.jsList').addClass('oldJs');
+            $.each(result.cssList,function(_,v){
+                loadCss('/stylesheet/'+v,_,result,option);
+            });
+        }
     });
 }
 function backUrl(){
-    let urlList=sessionStorage.getItem('backUrl').split(',')
+    let urlList=sessionStorage.getItem('backUrl').split(',');
     let url=urlList.pop();
     if(url=='/home'){
         sessionStorage.setItem('backUrl','');
@@ -190,13 +202,14 @@ function backUrl(){
         }else{
             footBar.eq(4).click();
         }
+    }else if(url=='/shop-production'){
+        loadLib(url,{'prdType':sessionStorage.getItem('shopType'),'detailType':sessionStorage.getItem('shopDetailType'),"sex":sessionStorage.getItem('shopSex')})
     }else{
         loadLib(url)
     }
 }
 function showTemplate(option){
     let template = Handlebars.compile(localStorage.getItem('template'));
-    console.log(option)
     $('#content').html(template(option.result));
     if(option.all){
         $('header.aui-bar-nav').html(option.all)

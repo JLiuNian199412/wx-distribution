@@ -69,3 +69,7 @@ margin-left:1%;
     font-size: 0.65rem;
     color: #888;
 }
+#aui-slide{
+    position: relative;
+    height: 184px;
+}

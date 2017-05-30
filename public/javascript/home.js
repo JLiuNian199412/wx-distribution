@@ -16,7 +16,7 @@ let template=
     '</div>' +
     '<section class="aui-grid">' +
     '<div class="aui-row">' +
-    '<div class="aui-col-xs-3">' +
+    '<div class="aui-col-xs-3 home-all">' +
     '<img src="/images/nav_0.png" alt="" class="index_nav">' +
     '<div class="aui-grid-label">全部分类</div>' +
     '</div>' +
@@ -24,11 +24,11 @@ let template=
     '<img src="/images/nav_1.png" alt="" class="index_nav">' +
     '<div class="aui-grid-label">促销活动</div>' +
     '</div>' +
-    '<div class="aui-col-xs-3">' +
+    '<div class="aui-col-xs-3 home-hot-search">' +
     '<img src="/images/nav_2.png" alt="" class="index_nav">' +
     '<div class="aui-grid-label">热门搜索</div>' +
     '</div>' +
-    '<div class="aui-col-xs-3">' +
+    '<div class="aui-col-xs-3 home-my-order">' +
     '<img src="/images/nav_3.png" alt="" class="index_nav">' +
     '<div class="aui-grid-label">我的订单</div>' +
     '</div>' +
@@ -54,27 +54,7 @@ let template=
     '<p class="index-title"><i class="iconfont icon-cainixihuan is-cainixihuan"></i>猜你喜欢</p>' +
     '<p class="index-small-title">实时推荐最适合您的宝贝</p>' +
     '</div>' +
-    '<section class="aui-grid product-list">' +
-    '<div class="aui-row">' +
-    '<div class="aui-col-xs-6 product-div">' +
-    '<div class="product-content">' +
-    '<div class="product-img">' +
-    '<img src="/images/product1.jpg" alt="">' +
-    '</div>' +
-    '<h4>十月结晶孕产妇漱口水月子漱口液 孕妇产褥期产后待产用品250ml</h4>' +
-    '<p><span>￥115.00元</span></p>' +
-    '</div>' +
-    '</div>' +
-    '<div class="aui-col-xs-6 product-div">' +
-    '<div class="product-content">' +
-    '<div class="product-img">' +
-    '<img src="/images/product2.jpg" alt="">' +
-    '</div>' +
-    '<h4>哈优孕妇护肤品套装专用孕妇洗面奶保湿孕妇化妆品套装天然旗舰店</h4>' +
-    '<p><span>￥115.00元</span></p>' +
-    '</div>' +
-    '</div>' +
-    '</div>'+
+    '<section id="product-like" class="aui-grid product-list">' +
     '</section>';
 localStorage.setItem('template',template);
 if($('#aui-slide')){
@@ -82,12 +62,6 @@ if($('#aui-slide')){
 }
 function CurrentJsLoad(){
     $('.aui-dialog').remove();
-    var dialog = new auiDialog({});
-    dialog.alert({
-        title:"提示",
-        msg:"服务器开小差了",
-        buttons:['确定']
-    });
     // function openDialog(type){
     //     switch (type) {
     //         case "text":
@@ -102,20 +76,39 @@ function CurrentJsLoad(){
     //
     //     }
     // }
-        $('.aui-pull-right.aui-btn').click(function(){
-            loadLib('/users/login');
-        });
-        var slide = new auiSlide({
-            container:document.getElementById("aui-slide"), //容器
-            // "width":300, //宽度
-            "height":184, //高度
-            "speed":500, //速度
-            "autoPlay": 3000, //自动播放
-            "loop":true,//是否循环
-            "pageShow":true,//是否显示分页器
-            "pageStyle":'dot', //分页器样式，分dot,line
-            'dotPosition':'center' //当分页器样式为dot时控制分页器位置，left,center,right
-        });
+    $.get('/people-like',function(result){
+        let option={};
+        option.result=result;
+        let str='<div class="aui-row">' +
+            '{{#each result}}' +
+            '<div class="aui-col-xs-6 product-div" data-id="{{id}}">' +
+            '<div class="product-content">' +
+            '<div class="product-img">' +
+            '<img src="/images/{{picUrl}}" alt="">' +
+            '</div>' +
+            '<h4>{{name}}</h4>' +
+            '<p><span>￥{{price}}元</span></p>' +
+            '</div>' +
+            '</div>' +
+            '{{/each}}' +
+            '</div>';
+        let template2 = Handlebars.compile(str);
+        $('#product-like').html(template2(option));
+        $('.product-div').click(function(){
+            loadLib('/production-detail',{'goodsId':$(this).data("id")});
+        })
+    });
+    var slide = new auiSlide({
+        container:document.getElementById("aui-slide"), //容器
+        // "width":300, //宽度
+        "height":184, //高度
+        "speed":500, //速度
+        "autoPlay": 3000, //自动播放
+        "loop":true,//是否循环
+        "pageShow":true,//是否显示分页器
+        "pageStyle":'dot', //分页器样式，分dot,line
+        'dotPosition':'center' //当分页器样式为dot时控制分页器位置，left,center,right
+    });
     $('#search-input').click(function(){
         sessionStorage.setItem('searchBackUrl','/home');
         loadLib('/search')
@@ -126,7 +119,7 @@ function CurrentJsLoad(){
     $('.home-hot-search').click(function(){
         loadLib('/search')
     });
-    $('.home-my-orderl').click(function(){
+    $('.home-my-order').click(function(){
         loadLib('/my-order')
     });
 }
