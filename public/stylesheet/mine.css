@@ -257,3 +257,6 @@ li .aui-badge{
     position: relative;
 
 }
+div#content{
+    padding-top: 0;
+}

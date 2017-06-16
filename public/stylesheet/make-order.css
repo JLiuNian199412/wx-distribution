@@ -108,7 +108,7 @@ b, strong {
 .collapse {
     display: none;
 }
-.ect-radio li input[type=checkbox]{
+.ect-radio li input[type=radio]{
     width: 0.96rem;
     height: 0.96rem;
     margin-top: 0.42rem;

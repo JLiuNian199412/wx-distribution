@@ -1,5 +1,5 @@
 let template=
-    '<div id="box">'+
+    '<div id="box" data-id="{{userId}}">'+
     '<header class="dis-box padding-all open-header-bg">'+
     '<div class="box-flex">'+
     '<div class="header-left-box p-r">'+
@@ -42,7 +42,7 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
-    let url=URL.host+'?'+URL.param();
+    let url=URL.host+'?prevId='+$("#box").data("id");
     $('.n-set-url').text(url);
     $('.n-set-4-submit').click(function () {
         loadLib('/store')

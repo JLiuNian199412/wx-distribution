@@ -57,3 +57,6 @@ footer.aui-bar.aui-bar-tab{
     box-sizing: border-box;
     background: white;
 }
+div#content{
+    padding-top: 0;
+}

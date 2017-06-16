@@ -10,7 +10,7 @@ let template=
     '<img src="/images/get_avatar.png">'+
     '</div>'+
     '<div class="ect-index-name">'+
-    '<h1>ss</h1>'+
+    '<h1>{{name}}</h1>'+
     '</div>'+
     '</div>'+
     '<img src="/images/index_bg.jpg" class="fl">'+
@@ -104,7 +104,7 @@ let template=
     '<div class="aui-bar-tab-label">搜索</div>'+
     '</div>'+
     '<div class="aui-bar-tab-item">'+
-    '<div class="aui-badge">99</div>'+
+    '<div class="aui-badge">0</div>'+
     '<i class="aui-iconfont aui-icon-cart"></i>'+
     '<div class="aui-bar-tab-label">购物车</div>'+
     '</div>'+
@@ -116,7 +116,6 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
-    // loadLib('/sale_1');
     let share_div=$('.share-div')
     share_div.click(function () {
         share_div.removeClass('active');

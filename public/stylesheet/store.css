@@ -131,3 +131,6 @@ footer.aui-bar.aui-bar-tab{
 .index-more-list {
     overflow: hidden;
 }
+div#content{
+    padding-top: 0;
+}

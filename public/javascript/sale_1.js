@@ -56,6 +56,40 @@ let template=
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
     $('.n-set-4-submit').click(function () {
-        loadLib('/sale_2')
+        let shop={}
+        let shopName=$('#shop_name').val();
+        let realName=$('#real_name').val();
+        let shopMobile=$('#shop_mobile').val();
+        let shopQq=$('#shop_qq').val();
+        shop.shopName=shopName;
+        shop.realName=realName;
+        shop.shopMobile=shopMobile;
+        shop.shopQq=shopQq;
+        shop.prev=URL.param("prevId");
+        if(shopName==''){
+            dialog.alert({
+                title:"提示",
+                msg:'店铺名称 不能为空',
+                buttons:['确定']
+            })
+        }else if(realName==''){
+            dialog.alert({
+                title:"提示",
+                msg:'真实姓名 不能为空',
+                buttons:['确定']
+            })
+        }else if(shopMobile==''){
+            dialog.alert({
+                title:"提示",
+                msg:'手机号 不能为空',
+                buttons:['确定']
+            })
+        }else{
+            $.get("/new-store",shop,function (val) {
+                if(val.affectedRows>0){
+                    loadLib('/sale_2',{"type":"insert"})
+                }
+            })
+        }
     })
 }

@@ -38,3 +38,6 @@ footer.aui-bar.aui-bar-tab{
     border: none;
     border-radius: 0.3rem;
 }
+div#content{
+    padding-top: 0;
+}

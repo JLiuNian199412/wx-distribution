@@ -17,12 +17,9 @@ let template=
     '<span class="fr"><i class="aui-iconfont aui-icon-trash"></i></span>'+
     '</p>'+
     '<ul class="hot-search" id="search_histroy">'+
-    '<li><span>看不懂</span></li>'+
-    '<li><span>人</span></li>'+
-    '<li><span>ren </span></li>'+
-    '<li><span>是</span></li>'+
-    '<li><span>nan </span></li>'+
-    '<li><span>nan</span></li>'+
+    '{{#each List}}'+
+    '<li><span>{{content}}</span></li>'+
+    '{{/each}}'+
     '</ul>'+
     '</div>'+
     '</section>'+
@@ -42,5 +39,53 @@ function CurrentJsLoad(){
     });
     $('section.search .text-all .aui-icon-left').click(function(){
             backUrl()
+    });
+    $('.isNull').click(function () {
+        $('#newinput').val('');
+        $(this).removeClass('active');
+    });
+    function submitSearch() {
+        let searchText=$('#newinput').val();
+        searchText=searchText.trim();
+        if(searchText){
+            $.get('/insert-search',{"text":searchText},function (res) {
+                if(res!='err'){
+                    sessionStorage.setItem('searchContent',searchText);
+                    sessionStorage.setItem('indexProduct',false);
+                    sessionStorage.removeItem('shopSort');
+                    sessionStorage.removeItem('sortDirection');
+                    loadLib('/shop-production')
+                }else{
+                    toast.fail({
+                        title:"搜索失败",
+                        duration:1000
+                    });
+                }
+            })
+        }
+    }
+    $('.btn-submit').click(function () {
+        submitSearch();
+    });
+    $('#newinput').keydown(function(e){
+        if(e.keyCode==13){
+            submitSearch();
+        }
+    });
+    $('.aui-iconfont.aui-icon-trash').click(function () {
+        $.get('/delete-search',function (res) {
+            if(res!='err'&&res.affectedRows!='0'){
+                toast.success({
+                    title:"删除成功",
+                    duration:1000
+                });
+                $('#search_histroy li').remove();
+            }else{
+                toast.fail({
+                    title:"删除失败",
+                    duration:1000
+                });
+            }
+        })
     })
 }

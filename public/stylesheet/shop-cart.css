@@ -35,6 +35,7 @@ header .aui-title{
 }
 .price-tips{
     padding: 0.35rem;
+    padding-right: 0.8rem;
     float: right;
 }
 b, strong {
@@ -168,7 +169,6 @@ b, strong {
 }
 .o-t-error {
     margin-top: 5rem;
-    display: none;
 }
 .o-t-error .img {
     margin: 0 auto;

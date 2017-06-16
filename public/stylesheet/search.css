@@ -142,3 +142,6 @@ ul.hot-search span {
     text-align: center;
     width: 100%;
 }
+.aui-toast{
+    z-index: 9999;
+}

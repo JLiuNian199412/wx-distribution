@@ -1,5 +1,5 @@
 let template=
-    '<div id="box" class="n-sale-shop-box bg-color-whie">'+
+    '<div id="box" data-type="{{type}}" data-goodsType="{{goodsType}}" class="n-sale-shop-box bg-color-whie">'+
     '<div class="dis-box padding-all open-header-bg">'+
     '<div class="box-flex">'+
     '<div class="header-left-box p-r">'+
@@ -39,7 +39,16 @@ let template=
     '<div class="sp_box_div">'+
     '<div class="b-r sp_box_all sp_box1" id="cate_47">'+
     '<input type="checkbox" name="cate[]" value="47" class="elecheck display-none">'+
-    '<h4 class="sp_title text-c  f-06">鞋/箱包</h4>'+
+    '<h4 class="sp_title text-c  f-06">鞋</h4>'+
+    '<span>一级分店佣金：60.00%</span>'+
+    '<span>二级分店佣金：20.00%</span>'+
+    '<span>三级分店佣金：20.00%</span>'+
+    '</div>'+
+    '</div>'+
+    '<div class="sp_box_div">'+
+    '<div class="b-r sp_box_all sp_box1" id="cate_47">'+
+    '<input type="checkbox" name="cate[]" value="47" class="elecheck display-none">'+
+    '<h4 class="sp_title text-c  f-06">箱包</h4>'+
     '<span>一级分店佣金：60.00%</span>'+
     '<span>二级分店佣金：20.00%</span>'+
     '<span>三级分店佣金：20.00%</span>'+
@@ -48,7 +57,7 @@ let template=
     '<div class="sp_box_div">'+
     '<div class="b-r sp_box_all sp_box1" id="cate_785">'+
     '<input type="checkbox" name="cate[]" value="78" class="elecheck display-none">'+
-    '<h4 class="sp_title text-c  f-06">珠宝首饰/手表眼镜</h4>'+
+    '<h4 class="sp_title text-c  f-06">珠宝首饰</h4>'+
     '<span>一级分店佣金：50.00%</span>'+
     '<span>二级分店佣金：40.00%</span>'+
     '<span>三级分店佣金：10.00%</span>'+
@@ -57,7 +66,7 @@ let template=
     '<div class="sp_box_div">'+
     '<div class="b-r sp_box1 sp_box_all" id="cate_111">'+
     '<input type="checkbox" name="cate[]" value="111"  class="elecheck display-none">'+
-    '<h4 class="sp_title text-c  f-06">美妆护肤</h4>'+
+    '<h4 class="sp_title text-c  f-06">手表眼镜</h4>'+
     '<span>一级分店佣金：50.00%</span>'+
     '<span>二级分店佣金：30.00%</span>'+
     '<span>三级分店佣金：20.00%</span>'+
@@ -66,7 +75,7 @@ let template=
     '<div class="sp_box_div">'+
     '<div class="b-r sp_box1 sp_box_all" id="cate_169">'+
     '<input type="checkbox" name="cate[]" value="169" class="elecheck display-none">'+
-    '<h4 class="sp_title text-c  f-06">家用电器</h4>'+
+    '<h4 class="sp_title text-c  f-06">数码</h4>'+
     '<span>一级分店佣金：50.00%</span>'+
     '<span>二级分店佣金：30.00%</span>'+
     '<span>三级分店佣金：20.00%</span>'+
@@ -80,6 +89,20 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
+    var  bodyType=$("#box").data("type");
+    if($("#box").data("goodstype")){
+        let goodsType=$("#box").data("goodstype");
+        let goodsTypes=[];
+        let boxContent=$('.sp_box_all h4');
+        goodsTypes=goodsType.split(',');
+        $.each(boxContent,function (_,v) {
+            if($.inArray($('.sp_box_all h4').eq(_).text(),goodsTypes)>=0){
+                $('.sp_box_all').eq(_).addClass("sp_box2").removeClass("sp_box1");
+                $('.sp_box_all').eq(_).find("input[type=checkbox]").prop("checked",true);
+            }
+        })
+    }
+
     $('.sp_box_all').click(function () {
         let $this=$(this);
         let $checkAll=$('#checkAll');
@@ -106,18 +129,29 @@ function CurrentJsLoad(){
             $('.sp_box_all').addClass('sp_box1').removeClass('sp_box2');
             $('.elecheck').prop("checked", false);
         }
-    })
+    });
     $('.n-set-4-submit').click(function () {
+        let parm={};
+        parm.list=[];
         $.each($('.elecheck:checked'),function (_,v) {
-            console.log($(v).next().text())
+            parm.list.push($(v).next().text())
         });
-        if(URL.param('storeid')){
-            loadLib('/store-manage')
+        if(parm&&parm!=''){
+            $.get('/updateGoodsType',parm,function (val) {
+                if(bodyType=='update'){
+                    loadLib('/store-manage')
+                }else{
+                    loadLib('/sale_3')
+                }
+            })
         }else{
-            loadLib('/sale_3')
+            toast.fail({
+                title:"请选择经营类型",
+                duration:1000
+            });
         }
-    })
-    if(URL.param('storeid')){
+    });
+    if(bodyType=='update'){
         $('.open-header-bg').hide();
         $('.n-ti-bg').hide();
     }

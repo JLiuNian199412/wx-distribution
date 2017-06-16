@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>后台管理系统</title>
+    <meta name="author" content="DeathGhost" />
+    <link rel="stylesheet" type="text/css" href="/stylesheet/lib/style.css" />
+    <!--[if lt IE 9]>
+    <script src="/javascript/lib/html5.js"></script>
+    <![endif]-->
+    <script src="/javascript/lib/jquery-2.1.4.min.js"></script>
+    <script src="/javascript/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="/javascript/lib/handlebars-v4.0.2.js"></script>
+    <script>
+        (function($){
+            $(window).load(function(){
+                $('.default-list').click();
+                $("a[rel='load-content']").click(function(e){
+                    e.preventDefault();
+                    var url=$(this).attr("href");
+                    $.get(url,function(data){
+                        $(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+                        //scroll-to appended content
+                        $(".content").mCustomScrollbar("scrollTo","h2:last");
+                    });
+                });
+
+                $(".content").delegate("a[href='top']","click",function(e){
+                    e.preventDefault();
+                    $(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+                });
+
+            });
+        })(jQuery);
+    </script>
+</head>
+<body>
+<!--header-->
+<header>
+    <h1><img src="/images/admin_logo.png"/></h1>
+    <ul class="rt_nav">
+        <li><a href="/" target="_blank" class="website_icon">app地址</a></li>
+    </ul>
+</header>
+
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar">
+    <h2>后台管理</h2>
+    <ul>
+        <li>
+            <dl>
+                <dt>商品管理</dt>
+                <dd><a href="#" class="active default-list">商品列表</a></dd>
+                <dd><a href="#">商品添加</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>订单信息</dt>
+                <dd><a href="#">订单管理</a></dd>
+            </dl>
+        </li>
+    </ul>
+</aside>
+
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+
+    </div>
+</section>
+</body>
+</html>
+
+<script id="add-goods" type="text/x-handlebars-template">
+    <section>
+        <div class="page_title">
+            <h2 class="fl">商品添加</h2>
+        </div>
+        <form action="/add-goods" method="post" id="form-good">
+            <ul class="ulColumn2">
+                <li>
+                    <span class="item_name " style="width:120px;">商品名称：</span>
+                    <input type="text" class="textbox textbox_295 goodName" name='goodName' placeholder="商品标题"/>
+                    <span class="errorTips">请输入商品标题</span>
+                </li>
+                <li>
+                    <span class="item_name" style="width:120px;">类型：</span>
+                    <select class="select goodType" name='goodType'>
+                        <option>选择类型</option>
+                        <option>鞋</option>
+                        <option>箱包</option>
+                        <option>珠宝首饰</option>
+                        <option>手表眼镜</option>
+                        <option>数码</option>
+                    </select>
+                    <select class="select goodDetailType" name='goodDetailType'>
+                        <option>选择类型</option>
+                    </select>
+                    <span class="errorTips">请选择商品类型</span>
+                </li>
+                <li>
+                    <span class="item_name " style="width:120px;">价格：</span>
+                    <input type="text" class="textbox goodPrice" name='goodPrice' placeholder="商品价格"/>
+                    <span class="errorTips">请输入商品价格</span>
+                </li>
+                <li>
+                    <span class="item_name " style="width:120px;">库存：</span>
+                    <input type="text" class="textbox goodQty" name='goodQty' placeholder="商品库存"/>
+                    <span class="errorTips">请输入商品库存</span>
+                </li>
+                <li>
+                    <span class="item_name " style="width:120px;">适宜性别：</span>
+                    <label class="single_selection"><input type="radio" class="goodSex" name="sex" value="0"/>全部</label>
+                    <label class="single_selection"><input type="radio" class="goodSex" name="sex" value="1"/>男</label>
+                    <label class="single_selection"><input type="radio" class="goodSex" name="sex" value="2"/>女</label>
+                </li>
+                <li>
+                    <span class="item_name" style="width:120px;">商品图片：</span>
+                    <label class="uploadImg">
+                        <input type="file" name='good_icon' class="goodImg"/>
+                        <span>上传图片</span>
+                    </label>
+                </li>
+                <li>
+                    <span class="item_name" style="width:120px;"></span>
+                    <input type="button" class="link_btn add-goods-submit" value="提交"/>
+                </li>
+            </ul>
+        </form>
+    </section>
+</script>
+
+<script id="info-goods" type="text/x-handlebars-template">
+    <section>
+        <div class="page_title">
+            <h2 class="fl">商品列表</h2>
+        </div>
+        <table class="table goodList">
+            <tr>
+                <th>商品名</th>
+                <th>商品价格</th>
+                <th>商品库存</th>
+                <th>操作</th>
+            </tr>
+            {{#each list}}
+            <tr>
+                <td style="width:265px;"><div class="cut_title ellipsis">{{name}}</div></td>
+                <td style="width:120px;">{{price}}<input type="text" style="display:none;width:100%"></td>
+                <td style="width:120px;">{{qty}}<input type="text" style="display:none;width:100%"></td>
+                <td style="width:100px;">
+                    <a href="#" class="inner_btn">更改</a>
+                    <a href="#" class="inner_btn">删除</a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <aside class="paging">
+            <a>第一页</a>
+            <a>1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>…</a>
+            <a>最后一页</a>
+        </aside>
+    </section>
+</script>
+
+<script id="info-orders" type="text/x-handlebars-template">
+    <section>
+        <div class="page_title">
+            <h2 class="fl">订单管理</h2>
+        </div>
+        <table class="table orderList">
+            <tr>
+                <th>订单编号</th>
+                <th>总价</th>
+                <th>状态</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            {{#each list}}
+            <tr>
+                <td style="width:265px;"><div class="cut_title ellipsis">。</div></td>
+                <td>内容二</td>
+                <td>内容三</td>
+                <td>内容四</td>
+                <td>内容四</td>
+                <td>
+                    <a href="#" class="inner_btn">表内按钮</a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <aside class="paging">
+            <a>第一页</a>
+            <a>1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>…</a>
+            <a>最后一页</a>
+        </aside>
+    </section>
+</script>
+
+<script>
+
+    $('.lt_aside_nav ul li dd a').click(function () {
+        $('.lt_aside_nav ul li dd a').removeClass("active")
+        $(this).addClass("active");
+        let textContent=$(this).text();
+        if(textContent=="商品添加"){
+            let template = Handlebars.compile($("#add-goods").html());
+            $('.rt_content').html(template());
+            $('.errorTips').hide();
+            $('.goodType').change(function () {
+                if( $('.goodType').val()=="鞋"){
+                    $('.goodDetailType').html(
+                        '<option>正装皮鞋</option>' +
+                        '<option>休闲鞋</option>' +
+                        '<option>凉鞋</option>' +
+                        '<option>帆布鞋</option>' +
+                        '<option>板鞋</option>')
+                }else if( $('.goodType').val()=="箱包"){
+                    $('.goodDetailType').html(
+                        '<option>女士钱包</option>' +
+                        '<option>女双肩包</option>' +
+                        '<option>真皮男包</option>' +
+                        '<option>斜跨男包</option>' +
+                        '<option>旅行箱</option>')
+                }else if( $('.goodType').val()=="珠宝首饰"){
+                    $('.goodDetailType').html(
+                        '<option>手链</option>' +
+                        '<option>钻石</option>' +
+                        '<option>项链</option>' +
+                        '<option>手镯</option>' +
+                        '<option>翡翠</option>' +
+                        '<option>发饰</option>' +
+                        '<option>玉石</option>' +
+                        '<option>戒指</option>' +
+                        '<option>耳饰</option>')
+                }else if( $('.goodType').val()=="手表眼镜"){
+                    $('.goodDetailType').html(
+                        '<option>太阳镜</option>' +
+                        '<option>蛤蟆镜</option>' +
+                        '<option>情侣表</option>' +
+                        '<option>机械表</option>'+
+                        '<option>运动表</option>')
+                }else if($('.goodType').val()=="数码"){
+                    $('.goodDetailType').html(
+                        '<option>手机</option>' +
+                        '<option>DIY电脑</option>' +
+                        '<option>笔记本</option>' +
+                        '<option>显示器</option>' +
+                        '<option>U盘</option>')
+                }else {
+                    $('.goodDetailType').html(
+                        '<option>请选择类型</option>')
+                }
+                $('.add-goods-submit').click(function () {
+                    let good={};
+                    good.name=$('.goodName').val();
+                    good.type=$('.goodType').val();
+                    good.detailType=$('.goodDetailType').val();
+                    good.qty=$('.goodQty').val();
+                    good.price=$('.goodPrice').val();
+                    good.sex=$('input[name="sex"]:checked.goodSex').val();
+                    var formData=new FormData($('#form-good')[0]);
+                    if(good.name&&good.type&& good.detailType&&good.qty&&good.sex){
+                        $.ajax({
+                            type: "POST",
+                            url:'/add-goods',
+                            data:formData,// 你的formid
+                            async:false,
+                            cache:false,
+                            contentType:false,
+                            processData:false,
+                            success: function(request) {
+                                alert("添加成功");
+                                location.reload();
+                            },
+                            error: function(data) {
+
+                            }
+                        });
+                    }
+
+                })
+            });
+        }else if(textContent=='商品列表'){
+            let template2 = Handlebars.compile($("#info-goods").html());
+            $('.rt_content').html(template2())
+            $.get('/get-goodList',function (val) {
+                console.log(val)
+                $.each(val.list,function (_,v) {
+                    $('.goodList').append(
+                        '<tr>'+
+                        '<td style="width:265px;"><div class="cut_title ellipsis">'+v.name+'</div></td>'+
+                        '<td style="width:120px;">'+v.price+'<input type="text" value="'+v.price+'" style="display:none;width:100%"></td>'+
+                        '<td style="width:120px;">'+v.qty+'<input type="text"value="'+v.qty+'" style="display:none;width:100%"></td>'+
+                        '<td style="width:100px;">'+
+                        '<a href="#" class="inner_btn remove-goods" data-id="'+v.id+'">移除商品</a>'+
+                        '</td>'+
+                        '</tr>')
+                });
+                $('.remove-goods').click(function () {
+                    $.get("/remove-good",{"goodId":$(this).data("id")},function (res) {
+                        if(res.affectedRows==1){
+                            alert("删除成功");
+                            location.reload()
+                        }
+                    });
+                })
+            });
+
+        }else if(textContent=='订单管理'){
+            let template=Handlebars.compile($("#info-orders").html());
+            $('.rt_content').html(template())
+            $.get('/get-orderList',function (val) {
+                console.log(val)
+                $.each(val.list,function (_,v) {
+                    $('.orderList').append(
+                        '<tr>'+
+                        '<td style="width:265px;"><div class="cut_title ellipsis">'+v.orderNo+'</div></td>'+
+                        '<td>'+v.price+'</td>'+
+                        '<td>'+v.status+'</td>'+
+                        '<td>'+v.time+'</td>'+
+                        '<td>'+
+                        '<a href="#" class="inner_btn confirm-order" data-id="'+v.orderId+'">确认发货</a>'+
+                        '<a href="#" class="inner_btn cancle-order" data-id="'+v.orderId+'">取消订单</a>'+
+                        '</td>'+
+                        '</tr>')
+                });
+                $('.confirm-order').click(function () {
+                    $.get("/update-order",{"orderId":$(this).data("id"),"status":'已发货'},function (res) {
+                        if(res.affectedRows==1){
+                            alert("已发货");
+                            location.reload()
+                        }
+                    });
+                });
+                $('.cancle-order').click(function () {
+                    $.get("/update-order",{"orderId":$(this).data("id"),"status":'已取消'},function (res) {
+                        if(res.affectedRows==1){
+                            alert("已取消")
+                            location.reload()
+                        }
+                    });
+                });
+                inputShow()
+            })
+
+        }
+    });
+    function inputShow() {
+        $('.rt_content').delegate('td', "click", function () {
+            $(this).find("input").show().focus();
+        })
+        $('.rt_content').delegate('..table tr td input', "blur", function () {
+            $(this).hide();
+            $(this).parent().text($(this).val())
+        })
+    }
+
+</script>

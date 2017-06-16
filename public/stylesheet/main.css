@@ -183,3 +183,12 @@ section.aui-grid.product-list{
 .aui-mask{
     z-index: 12;
 }
+.aui-bar.aui-bar-nav{
+    position: fixed;
+}
+div#content{
+    padding-top: 2.5rem;
+}
+.aui-toast{
+    z-index: 9999;
+}

@@ -178,7 +178,7 @@ footer.aui-bar.aui-bar-tab{
  }
 .heart {
     display: block;
-    width: 2.4rem;
+    width: 3rem;
     height: 2.4rem;
     padding-left: 0.7rem;
 }
@@ -187,10 +187,10 @@ footer.aui-bar.aui-bar-tab{
     width: 1.7rem;
     height: 1.7rem;
     font-size: 28px;
-    margin-left:0.2rem ;
+    margin-left:0.5rem ;
 }
 .heart em {
-    font-size: 16px;
+    font-size: 12px;
     display: block;
     text-align: center;
     margin-top: 0.05rem;
@@ -581,4 +581,13 @@ h4.t-remark{
 }
 .n-goods-bg.active {
     display: block;
+}
+.heart.active i{
+    color: red;
+}
+.aui-toast{
+    z-index: 9999;
+}
+div#content{
+    padding-top: 0;
 }

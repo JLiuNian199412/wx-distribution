@@ -106,7 +106,7 @@
         <div class="aui-bar-tab-label">店铺</div>
     </div>
     <div class="aui-bar-tab-item" tapmode>
-        <div class="aui-badge">99</div>
+        <div class="aui-badge"></div>
         <i class="aui-iconfont aui-icon-cart"></i>
         <div class="aui-bar-tab-label">购物车</div>
     </div>
@@ -122,6 +122,8 @@
 <script type="text/javascript" src="/javascript/lib/aui-slide.js"></script>
 <script type="text/javascript" src="/javascript/lib/aui-popup.js"></script>
 <script type="text/javascript" src="/javascript/lib/aui-dialog.js"></script>
+<script type="text/javascript" src="/javascript/lib/aui-scroll.js"></script>
+<script type="text/javascript" src="/javascript/lib/aui-toast.js"></script>
 <script type="text/javascript" src="/javascript/lib/jquery.qrcode.min.js"></script>
 <script type="text/javascript" src="/javascript/main.js"></script>
 {{#each jsList}}
@@ -145,7 +147,13 @@
                     loadLib('/shop');
                     break;
                 case 3:
-                    loadLib('/store');
+                    $.get("/hasStore",function (res) {
+                        if(res.val.userStatus=='no-store'){
+                            loadLib('/sale_1');
+                        }else{
+                            loadLib('/store');
+                        }
+                    })
                     break;
                 case 4:
                     loadLib('/shop-cart');
@@ -153,10 +161,14 @@
                 case 5:
                     loadLib('/mine');
                     break;
-
             }
         }
     });
+    $.get('/count-shopcart',function (res) {
+        if(res){
+            $('footer.aui-bar.aui-bar-tab .aui-badge').text(res[0].total)
+        }
+    })
 </script>
 </body>
 </html>

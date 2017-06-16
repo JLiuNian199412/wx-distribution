@@ -73,3 +73,6 @@ footer.aui-bar.aui-bar-tab{
     border: 1px solid #1CBB7F;
     color: #1CBB7F;
 }
+div#content{
+    padding-top: 0;
+}

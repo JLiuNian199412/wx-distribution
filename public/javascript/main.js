@@ -1,3 +1,5 @@
+var dialog = new auiDialog({});
+var toast = new auiToast();
 function styleOnload(node, callback) {
     // for IE6-9 and Opera
     if (node.attachEvent) {
@@ -124,7 +126,7 @@ function loadLib(url,param){
         option.left=ui.left;
         option.title='我的收藏';
     }
-    else if(url=='/my-order'||url=='/address-detail'||url=='/make-order'){
+    else if(url=='/my-order'||url=='/address-detail'){
         option.left=ui.left;
         option.title=' ';
     }
@@ -135,20 +137,26 @@ function loadLib(url,param){
     else if(url=='/person-info'){
         option.left=ui.left;
         option.title='个人资料';
+    }else if(url=='/make-order'){
+        option.left=ui.left;
+        option.title='新建订单';
     }else if(url=='/order-detail'){
         option.left=ui.left;
         option.title='订单详情';
     }
     $.get(url,param,function(result){
-        var dialog = new auiDialog({});
         if(result.userId){
             sessionStorage.setItem('userId',result.userId)
         }
-        if(option.val=='err'){
-            dialog.alert({
-                title:"提示",
-                msg:"服务器开小差了",
-                buttons:['确定']
+        if(result.val=='err'){
+            toast.fail({
+                title:"服务器开小差了",
+                duration:1000
+            });
+        }else if(result.val==null){
+            toast.fail({
+                title:"暂无数据",
+                duration:1000
             });
         }else{
             option.result=result.val;
@@ -203,12 +211,32 @@ function backUrl(){
             footBar.eq(4).click();
         }
     }else if(url=='/shop-production'){
-        loadLib(url,{'prdType':sessionStorage.getItem('shopType'),'detailType':sessionStorage.getItem('shopDetailType'),"sex":sessionStorage.getItem('shopSex')})
+        let option2={};
+        if(sessionStorage.getItem('indexProduct')!='true'){
+            option2.prdType=sessionStorage.getItem('shopType');
+            option2.detailType=sessionStorage.getItem('shopDetailType');
+            option2.sex=sessionStorage.getItem('shopSex');
+        }
+        if(sessionStorage.getItem('searchContent'&&sessionStorage.getItem('searchContent')!='')){
+            option2.searchContent=sessionStorage.getItem('searchContent');
+        }
+        loadLib(url,option2)
+    }else if(url=='make-order'){
+        loadLib(url,{"goods":JSON.parse(sessionStorage.getItem("makeOrder"))})
     }else{
         loadLib(url)
     }
 }
 function showTemplate(option){
+    Handlebars.registerHelper("compare",function(v1,v2,options){
+        if(v1>v2){
+            //满足添加继续执行
+            return options.fn(this);
+        }else{
+            //不满足条件执行{{else}}部分
+            return options.inverse(this);
+        }
+    });
     let template = Handlebars.compile(localStorage.getItem('template'));
     $('#content').html(template(option.result));
     if(option.all){

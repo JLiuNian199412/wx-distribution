@@ -20,5 +20,4 @@ var query=function(sql,values,callback){
         }
     });
 };
-
 module.exports=query;

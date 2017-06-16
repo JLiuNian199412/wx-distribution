@@ -22,7 +22,7 @@ let template=
     '<ul class="swiper-wrapper">'+
     '<li class="swiper-slide tb-lr-center swiper-slide-active">'+
     '<div class="of-hidden" id="img-photo-box" style="width:375px;height: 375px;">'+
-    '<img id="img-photo" src="/images/{{picUrl}}" >'+
+    '<img id="img-photo" src="/images/{{url}}" >'+
     '</div>'+
     '</li>'+
     '</ul>'+
@@ -31,7 +31,7 @@ let template=
     '<section class="goods-title">'+
     '<div class="dis-box">'+
     '<h3 class="box-flex">{{name}}</h3>'+
-    '<span class="heart" id="ECS_COLLECT">'+
+    '<span class="heart" data-id="{{id}}" id="ECS_COLLECT">'+
     '<i class="ts-2 aui-iconfont aui-icon-like"></i>'+
     '<em class="ts-2">收藏</em>'+
     '</span>'+
@@ -116,7 +116,7 @@ let template=
     '</div>'+
     '</div>'+
     '<div class="filter-btn dis-box">'+
-    '<span class="filter-btn-flow filter-btn-a">'+
+    '<span class="filter-btn-flow go-shopCart filter-btn-a">'+
     '<i class="aui-iconfont aui-icon-cart"></i>'+
     '<sup class="b-color" id="total_number">0</sup>'+
     '<em>购物车</em>'+
@@ -128,14 +128,14 @@ let template=
     '<div class="show-goods-attr"></div>'+
     '<section class="product-list-small">'+
     '<div class="product-div">'+
-    '<img src="http://gi1.mlist.alicdn.com/bao/uploaded/i1/783329018/TB2EsDoXVXXXXctXXXXXXXXXXXX_!!783329018.jpg" alt="skechers斯凯奇 gowalk时尚女单鞋 超轻舒适豆豆鞋休闲女鞋13514" class="product-list-img">'+
+    '<img src="/images/{{url}}" alt="" class="product-list-img">'+
     '<div class="product-text">'+
     '<div class="dis-box">'+
     '<h4 class="box-flex">skechers斯凯奇 gowalk时尚女单鞋 超轻舒适豆豆鞋休闲女鞋13514</h4>'+
     '<i class="iconfont icon-guanbi show-div-guanbi"></i>'+
     '</div>'+
-    '<p><span class="p-price t-first" id="ECS_GOODS_AMOUNT">￥499.00元</span></p>'+
-    '<p class="dis-box p-t-remark"><span class="box-flex">库存:128</span></p>'+
+    '<p><span class="p-price t-first" id="ECS_GOODS_AMOUNT">￥{{price}}元</span></p>'+
+    '<p class="dis-box p-t-remark"><span class="box-flex">库存:{{qty}}</span></p>'+
     '</div>'+
     '</div>'+
     '</section>'+
@@ -145,22 +145,44 @@ let template=
     '<h4 class="t-remark">数量</h4>'+
     '<div class="div-num dis-box">'+
     '<a class="num-less aui-iconfont aui-icon-minus"></a>'+
-    '<input class="box-flex" type="text" value="1" name="number" id="goods_number" autocomplete="off">'+
+    '<input class="box-flex" data-qty="{{qty}}" type="text" value="1" name="number" id="goods_number" autocomplete="off">'+
     '<a class="num-plus aui-iconfont aui-icon-plus"></a>'+
     '</div>'+
     '</div>'+
     '</div>'+
     '</section>'+
     '<section class="ect-button-more dis-box">'+
-    '<span  data-id="{{id}}" class="btn-cart box-flex">加入购物车</span>'+
-    '<span  data-id="{{id}}" class="btn-submit box-flex">立即购买</span>'+
+    '<span  data-id="{{id}}" class="btn-cart box-flex joinCart">加入购物车</span>'+
+    '<span  data-id="{{id}}" class="btn-submit box-flex buyNow">立即购买</span>'+
     '</section>'+
     '</div>'+
     '</div>'+
-    '<div class="n-goods-bg"></div>'
+    '<div class="n-goods-bg"></div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
+    $('body').scrollTop(0);
     var popup = new auiPopup();
+    $.get('/count-shopcart',function (res) {
+        if(res){
+            $('#total_number').text(res[0].total);
+        }
+    });
+    if($("#ECS_COLLECT").data("id")!=''){
+        let collection=$("#ECS_COLLECT")
+        $.get('/edit-collection',{"type":"show","goodId":collection.data("id")},function (val) {
+            if(val!=''&&val!='err'){
+                console.log(val)
+                collection.addClass("active");
+                collection.find('em').text("已收藏");
+            }
+        });
+        $.get('/change-history',{"goodsId":collection.data("id")},function (res) {
+            if(res){
+
+            }
+        });
+    }
+
     $('.goods-left-jiat .j-nav-box').click(function(){
         let goodsNav=$('.goods-nav');
         goodsNav.hasClass('active')?goodsNav.removeClass('active') :goodsNav.addClass('active')
@@ -195,4 +217,106 @@ function CurrentJsLoad(){
     $('.filter-btn .box-flex').click(function(){
         $('.t-goods1').click();
     })
+
+    $('#ECS_COLLECT').click(function () {
+        let $this=$(this);
+        let goodId=$this.data("id");
+        if($this.hasClass("active")){
+            $this.removeClass("active");
+            $this.find('em').text("收藏");
+            $.get('/edit-collection',{"type":"cancel","goodId":goodId},function (val) {
+                if(val.affectedRows!=0){
+                    toast.success({
+                        title:"取消收藏",
+                        duration:1000
+                    });
+                }
+            })
+        }else{
+            $this.addClass("active");
+            $this.find('em').text("已收藏");
+            $.get('/edit-collection',{"type":"add","goodId":goodId},function (val) {
+                if(val.affectedRows!=0){
+                    toast.success({
+                        title:"收藏成功",
+                        duration:1000
+                    });
+                }
+            })
+        }
+    });
+    $('.div-num a').click(function () {
+        let $this=$(this);
+        if($this.hasClass('aui-icon-minus')){
+            if(parseInt($this.next().val())-1<1){
+                toast.fail({
+                    title:"数量不能小于1",
+                    duration:1000
+                });
+            }else{
+                $this.next().val($this.next().val()-1);
+            }
+        }else if($this.hasClass('aui-icon-plus')){
+            if(parseInt($this.prev().val())<parseInt($this.prev().data("qty"))){
+                $this.prev().val(parseInt($this.prev().val())+1)
+            }else{
+                toast.fail({
+                    title:"库存不足",
+                    duration:1000
+                });
+            }
+        }
+    });
+    $('.div-num input').change(function () {
+        let $this=$(this);
+        $this.val(parseInt($this.val()));
+        if(parseInt($this.val())<=0){
+            $this.val(1)
+        }else if(parseInt($this.val())>=parseInt($this.data("qty"))){
+            $this.val($this.data("qty"));
+            toast.fail({
+                title:"库存不足",
+                duration:1000
+            });
+        }
+    });
+    $('.joinCart').click(function () {
+        let $this=$(this);
+        $.get('/insert-shopcart',{"goodId":$this.data("id"),"qty":$('.div-num input').val()},function (val) {
+            if(val!=''&&val!='err'){
+                toast.success({
+                    title:"加入购物车成功",
+                    duration:1000
+                });
+                $.get('/count-shopcart',function (res) {
+                    if(res){
+                        $('#total_number').text(res[0].total);
+                        $('footer.aui-bar.aui-bar-tab .aui-badge').text(res[0].total)
+                    }
+                })
+            }else if(val=='err'){
+                toast.fail({
+                    title:"加入购物车失败",
+                    duration:1000
+                });
+            }
+            popup.hide();
+        })
+    });
+    $('.buyNow').click(function () {
+        let $this=$(this);
+        dialog.alert({
+            title:"提示",
+            msg:'确定购买该商品么？',
+            buttons:['取消','确定']
+        },function(ret){
+            if(ret.buttonIndex==2){
+                loadLib('/make-order',{'goodId':[$this.data('id')]})
+            }
+        })
+    })
+    $('.go-shopCart').click(function () {
+        loadLib("/shop-cart")
+    })
+
 }

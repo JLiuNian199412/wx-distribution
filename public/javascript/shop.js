@@ -130,12 +130,15 @@ function CurrentJsLoad(){
         text=$(this).find('span').text();
         sessionStorage.setItem('shopType',type);
         sessionStorage.setItem('shopDetailType',text);
+        sessionStorage.setItem('indexProduct',false);
+        sessionStorage.removeItem('shopSort');
+        sessionStorage.removeItem('sortDirection');
+        sessionStorage.removeItem('searchContent');
         if(text.indexOf('男')>=0){
             console.log(1)
             sessionStorage.setItem('shopSex','1');
             loadLib('/shop-production',{'prdType':type,'detailType':text,"sex":'1'})
         }else if(text.indexOf('女')>=0){
-            console.log(2)
             sessionStorage.setItem('shopSex','2');
             loadLib('/shop-production',{'prdType':type,'detailType':text,"sex":'2'})
         }else{

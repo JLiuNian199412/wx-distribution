@@ -84,7 +84,7 @@ function CurrentJsLoad(){
             '<div class="aui-col-xs-6 product-div" data-id="{{id}}">' +
             '<div class="product-content">' +
             '<div class="product-img">' +
-            '<img src="/images/{{picUrl}}" alt="">' +
+            '<img src="/images/{{url}}" alt="">' +
             '</div>' +
             '<h4>{{name}}</h4>' +
             '<p><span>￥{{price}}元</span></p>' +
@@ -98,7 +98,7 @@ function CurrentJsLoad(){
             loadLib('/production-detail',{'goodsId':$(this).data("id")});
         })
     });
-    var slide = new auiSlide({
+    let slide = new auiSlide({
         container:document.getElementById("aui-slide"), //容器
         // "width":300, //宽度
         "height":184, //高度
@@ -114,6 +114,10 @@ function CurrentJsLoad(){
         loadLib('/search')
     });
     $('.home-all').click(function(){
+        sessionStorage.setItem('indexProduct',true);
+        sessionStorage.removeItem('shopSort');
+        sessionStorage.removeItem('sortDirection');
+        sessionStorage.removeItem('searchContent');
         loadLib('/shop-production')
     });
     $('.home-hot-search').click(function(){

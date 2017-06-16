@@ -108,3 +108,6 @@ span.t-jiantou i.aui-icon-left.current {
     margin: 0 auto;
     margin-top: 1.2rem;
 }
+div#content{
+    padding-top: 0;
+}

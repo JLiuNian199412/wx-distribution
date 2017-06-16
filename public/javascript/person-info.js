@@ -3,11 +3,11 @@ let template=
     '<ul>'+
     '<li class="dis-box">'+
     '<h3 class="profile-left-name text-all-span my-u-title-size">用户名：</h3>'+
-    '<div class="box-flex t-goods1  onelist-hidden"> <input name="email" type="text" readonly="readonly" placeholder="liunian" value="liunian"></div>'+
+    '<div class="box-flex t-goods1  onelist-hidden"> <input name="email" type="text" readonly="readonly" placeholder="liunian" value="{{name}}"></div>'+
     '</li>'+
     '<li class="dis-box">'+
     '<h3 class="profile-left-name text-all-span my-u-title-size">电子邮件：</h3>'+
-    '<div class="box-flex t-goods1 onelist-hidden "> <input name="email" type="text" placeholder="请输入电子邮箱" value="1581547849"></div>'+
+    '<div class="box-flex t-goods1 onelist-hidden "> <input name="email" type="text" class="person-email" placeholder="请输入电子邮箱" value="{{email}}"></div>'+
     '</li>'+
     '</ul>'+
     '</section>'+
@@ -24,14 +24,28 @@ let template=
     '</div>';
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
-    var dialog = new auiDialog({});
-    dialog.alert({
-        title:"提示",
-        msg:"未输入正确的邮箱格式",
-        buttons:['确定']
-    });
+    // dialog.alert({
+    //     title:"提示",
+    //     msg:"未输入正确的邮箱格式",
+    //     buttons:['确定']
+    // });
     $('.btn-submit').click(function () {
-        loadLib('/mine')
+        let email=$('.person-email').val();
+        $.get('/update-person',{"email": email},function (val) {
+            if(val.affectedRows>0){
+                toast.success({
+                    title:"信息更新成功",
+                    duration:1000
+                });
+                loadLib('/mine')
+            }else{
+                toast.fail({
+                    title:"信息更新失败",
+                    duration:1000
+                });
+            }
+        });
+
     });
     $('.person-address').click(function () {
         loadLib('/address-list')

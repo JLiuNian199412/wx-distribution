@@ -10,9 +10,9 @@ let template=
     '</li>'+
     '<li class="box-flex">'+
     '<div class="n-sale-right-box">'+
-    '<h4>liunian</h4>'+
-    '<p>ss</p>'+
-    '<time class="color-whie f-03">开店时间：2017-05-18 01:21:58</time>'+
+    '<h4>{{userName}}</h4>'+
+    '<p>{{name}}</p>'+
+    '<time class="color-whie f-03">开店时间：{{createTime}}</time>'+
     '</div></li>'+
     '<li class="sale-right-width">'+
     '<div class="n-sale-icon-size"><span><i class="aui-iconfont aui-icon-gear is-n-sezhi-size"></i></span></div>'+
@@ -102,7 +102,7 @@ function CurrentJsLoad() {
         loadLib('/store')
     });
     $('.int-nav-box-2').click(function () {
-        loadLib('/sale_2')
+        loadLib('/sale_2',{"type":"update"})
     });
     $('.int-nav-box-d').click(function () {
         loadLib('/business-card')
