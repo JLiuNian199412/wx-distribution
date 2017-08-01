@@ -223,6 +223,9 @@ function backUrl(){
         loadLib(url,option2)
     }else if(url=='/make-order'){
         loadLib(url,{"goods":JSON.parse(sessionStorage.getItem("makeOrder"))})
+    }else if(url=='/production-detail'){
+        loadLib(url,{"goodsId":sessionStorage.getItem("product-goodsId")})
+        ;
     }else{
         loadLib(url)
     }

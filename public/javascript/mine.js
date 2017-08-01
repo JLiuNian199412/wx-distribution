@@ -124,6 +124,7 @@ function CurrentJsLoad(){
         $this=$(this);
         let goodId=$this.data("id");
         loadLib('/production-detail',{"goodsId":goodId});
+        sessionStorage.setItem("product-goodsId",goodId);
     })
     $('.n-shanchutupian').click(function () {
         $.get("/delete-history",function (val) {

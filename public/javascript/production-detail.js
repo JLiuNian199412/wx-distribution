@@ -315,7 +315,7 @@ function CurrentJsLoad(){
                 let goodsInfo=[];
                 goodsInfo[0]={};
                 goodsInfo[0].goodId=$this.data('id');
-                goodsInfo[0].number=1;
+                goodsInfo[0].number=$('#goods_number').val();
                 loadLib('/make-order',{"goods":goodsInfo})
                 sessionStorage.setItem("makeOrder",JSON.stringify(goodsInfo))
             }
