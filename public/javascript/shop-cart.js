@@ -73,6 +73,7 @@ function CurrentJsLoad(){
     $('.go-shop').click(function () {
         loadLib('/shop')
     });
+    sessionStorage.removeItem("makeOrder");
     function showTotal() {
         let good=$('.form-contro.active');
         let totalQty=0;

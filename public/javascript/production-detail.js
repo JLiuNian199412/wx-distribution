@@ -311,7 +311,11 @@ function CurrentJsLoad(){
             buttons:['取消','确定']
         },function(ret){
             if(ret.buttonIndex==2){
-                loadLib('/make-order',{'goodId':[$this.data('id')]})
+                let goodsInfo=[];
+                goodsInfo[0]={};
+                goodsInfo[0].goodId=$this.data('id');
+                goodsInfo[0].number=1;
+                loadLib('/make-order',{"goods":goodsInfo})
             }
         })
     })

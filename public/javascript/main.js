@@ -221,7 +221,7 @@ function backUrl(){
             option2.searchContent=sessionStorage.getItem('searchContent');
         }
         loadLib(url,option2)
-    }else if(url=='make-order'){
+    }else if(url=='/make-order'){
         loadLib(url,{"goods":JSON.parse(sessionStorage.getItem("makeOrder"))})
     }else{
         loadLib(url)
