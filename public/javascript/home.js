@@ -95,7 +95,7 @@ function CurrentJsLoad(){
         let template2 = Handlebars.compile(str);
         $('#product-like').html(template2(option));
         $('.product-div').click(function(){
-            let goodId=$this.data("id");
+            let goodId=$(this).data("id");
             loadLib('/production-detail',{"goodsId":goodId});
             sessionStorage.setItem("product-goodsId",goodId);
         })

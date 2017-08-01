@@ -105,7 +105,7 @@ function CurrentJsLoad(){
         sortView(option)
     });
     $('.product-list').delegate('.product-div',"click",function () {
-        let goodId=$this.data("id");
+        let goodId=$(this).data("id");
         loadLib('/production-detail',{"goodsId":goodId});
         sessionStorage.setItem("product-goodsId",goodId);
     })

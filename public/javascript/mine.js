@@ -121,8 +121,7 @@ function CurrentJsLoad(){
         loadLib('/person-info');
     })
     $('.product-li').click(function () {
-        $this=$(this);
-        let goodId=$this.data("id");
+        let goodId=$(this).data("id");
         loadLib('/production-detail',{"goodsId":goodId});
         sessionStorage.setItem("product-goodsId",goodId);
     })
