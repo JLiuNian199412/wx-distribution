@@ -161,6 +161,7 @@ let template=
 localStorage.setItem('template',template);
 function CurrentJsLoad(){
     $('body').scrollTop(0);
+    sessionStorage.removeItem("makeOrder");
     var popup = new auiPopup();
     $.get('/count-shopcart',function (res) {
         if(res){
@@ -316,6 +317,7 @@ function CurrentJsLoad(){
                 goodsInfo[0].goodId=$this.data('id');
                 goodsInfo[0].number=1;
                 loadLib('/make-order',{"goods":goodsInfo})
+                sessionStorage.setItem("makeOrder",JSON.stringify(goodsInfo))
             }
         })
     })
